@@ -29,7 +29,7 @@ The target experience is one where the player can laugh at the absolutely ridicu
 
 1.  Core Mechaninc
 
-    -    Walk in a top down view to find evidence objects
+    -    Walk in a top down view to find important objects in the environment
 
 2.  Secondary Mechancis
 
