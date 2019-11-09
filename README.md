@@ -27,11 +27,11 @@ The target experience is one where the player can laugh at the absolutely ridicu
 
 #### Core Diagram
 
-1.  Core Mechaninc
+1.  Core Mechanic
 
     -    Walk in a top down view to find important objects in the environment
 
-2.  Secondary Mechancis
+2.  Secondary Mechanics
 
     -   Dialogue with NPCs that may or may not provide insight on the location of evidence
     -   This evidence will be shown in an NPC interaction that happens 3 times on a time interval
