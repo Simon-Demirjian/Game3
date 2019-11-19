@@ -12,15 +12,12 @@ public class ContainerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        open = false;
-        contains = false;
-        containsEvidence = false;
-        item = "test item";
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

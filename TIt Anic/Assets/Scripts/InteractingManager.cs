@@ -9,9 +9,9 @@ public class InteractingManager : MonoBehaviour
     public List<string> inventory;
 
     private GameObject[] containers;
-    private List<GameObject> containerList;
+    private List<GameObject> containerList = new List<GameObject>();
     private GameObject[] doors;
-    private List<GameObject> doorList;
+    private List<GameObject> doorList = new List<GameObject>();
     private bool containerNear;
     private bool doorNear;
     private GameObject closest;
@@ -87,7 +87,7 @@ public class InteractingManager : MonoBehaviour
         //if the player is near an item, let them pick it up
         if (doorNear)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 //add code for door being in open or closed state
                 DoorScript doorScript = closest.GetComponent<DoorScript>();
@@ -144,7 +144,7 @@ public class InteractingManager : MonoBehaviour
         //if the player is near an item, let them pick it up
         if (containerNear)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 ContainerScript containerScript = closest.GetComponent<ContainerScript>();
                 //change the container's state to being open
@@ -163,12 +163,32 @@ public class InteractingManager : MonoBehaviour
                 {
                     evidenceCollected.Add(containerScript.item);
                     inventory.Add(containerScript.item);
+
+                    containerScript.item = "Empty";
+                    containerScript.contains = false;
+                    containerScript.containsEvidence = false;
                 }
                 else if (containerScript.contains)
                 {
                     inventory.Add(containerScript.item);
+
+                    containerScript.item = "Empty";
+                    containerScript.contains = false;
                 }
             }
+        }
+    }
+
+    void OnGUI()
+    {
+        //prompt to interact with item
+        if (containerNear)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+        }
+        else if (doorNear)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to open/close");
         }
     }
 }
