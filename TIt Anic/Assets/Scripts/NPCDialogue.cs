@@ -16,6 +16,7 @@ public class NPCDialogue : MonoBehaviour
 
     private int counter = 0;
     private bool guiOn = false;
+    private int npcNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,9 @@ public class NPCDialogue : MonoBehaviour
                     }
                 }
 
+                npcNum = counter;
+                Debug.Log(npcNum);
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     guiOn = true;
@@ -80,15 +84,15 @@ public class NPCDialogue : MonoBehaviour
     {
         if(guiOn)
         {
-            if (counter == 0) //first npc
+            if (npcNum == 0) //first npc
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "First NPC!");
             }
-            else if (counter == 1) //first npc
+            else if (npcNum == 1) //second npc
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Second NPC!");
             }
-            else if (counter == 2) //first npc
+            else if (npcNum == 2) //third npc
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Third NPC!");
             }
