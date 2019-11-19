@@ -14,6 +14,9 @@ public class NPCDialogue : MonoBehaviour
     private float distance;
     private GameObject closest;
 
+    private int counter = 0;
+    private bool guiOn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,6 @@ public class NPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int counter = 0;
         //if player is near a npc, allow them to converse
         foreach (GameObject npc in npcList)
         {
@@ -56,7 +58,7 @@ public class NPCDialogue : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
+                    guiOn = true;
                 }
             }
             else
@@ -68,14 +70,35 @@ public class NPCDialogue : MonoBehaviour
         if (counter == npcList.Count)
         {
             npcNear = false;
+            guiOn = false;
         }
+
+        counter = 0;
     }
 
     void OnGUI()
     {
-        if (npcNear) //if the player is near a npc, tell them they can converse
+        if(guiOn)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
+            if (counter == 0) //first npc
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "First NPC!");
+            }
+            else if (counter == 1) //first npc
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Second NPC!");
+            }
+            else if (counter == 2) //first npc
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Third NPC!");
+            }
+        }
+        else
+        {
+            if (npcNear && !guiOn) //if the player is near a npc, tell them they can converse
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
+            }
         }
     }
 }
