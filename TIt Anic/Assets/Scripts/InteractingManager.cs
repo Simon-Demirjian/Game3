@@ -17,8 +17,8 @@ public class InteractingManager : MonoBehaviour
     private GameObject closest;
 
     private float distance;
-    
 
+    private bool collectedEvidence = false;
 
     // Start is called before the first frame update
     void Start()
@@ -139,6 +139,7 @@ public class InteractingManager : MonoBehaviour
         if (counter == containerList.Count)
         {
             containerNear = false;
+            collectedEvidence = false;
         }
 
         //if the player is near an item, let them pick it up
@@ -167,6 +168,8 @@ public class InteractingManager : MonoBehaviour
                     containerScript.item = "Empty";
                     containerScript.contains = false;
                     containerScript.containsEvidence = false;
+
+                    collectedEvidence = true;
                 }
                 else if (containerScript.contains)
                 {
@@ -181,10 +184,18 @@ public class InteractingManager : MonoBehaviour
 
     void OnGUI()
     {
+        GUI.contentColor = Color.red;
         //prompt to interact with item
         if (containerNear)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+            if(collectedEvidence)
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Evidence Collected!");
+            }
+            else
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+            }
         }
         else if (doorNear)
         {

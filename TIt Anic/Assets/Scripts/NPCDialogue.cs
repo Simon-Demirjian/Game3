@@ -82,19 +82,27 @@ public class NPCDialogue : MonoBehaviour
 
     void OnGUI()
     {
+        GUI.contentColor = Color.red;
         if(guiOn)
         {
             if (npcNum == 0) //first npc
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "First NPC!");
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Iceberg was just here, you really missed out man!");
             }
             else if (npcNum == 1) //second npc
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Second NPC!");
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "I saw Iceberg hanging out near the end of the ship earlier today. What a *cool* guy!");
             }
             else if (npcNum == 2) //third npc
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Third NPC!");
+                if (player.GetComponent<InteractingManager>().evidenceCollected.Count >= 3)
+                {
+                    GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "You win!");
+                }
+                else
+                {
+                    GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "I'm gonna need three strong pieces of evidence to agree with your case.");
+                }
             }
         }
         else
