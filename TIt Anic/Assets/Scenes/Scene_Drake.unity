@@ -141,7 +141,7 @@ MonoBehaviour:
   open: 0
   contains: 1
   containsEvidence: 0
-  item: Dirt
+  item: Key
 --- !u!1001 &161704047
 PrefabInstance:
   m_ObjectHideFlags: 0

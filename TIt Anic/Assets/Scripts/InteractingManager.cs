@@ -12,6 +12,8 @@ public class InteractingManager : MonoBehaviour
     private List<GameObject> containerList = new List<GameObject>();
     private GameObject[] doors;
     private List<GameObject> doorList = new List<GameObject>();
+    private GameObject[] lockedDoors;
+    private List<GameObject> lockedDoorList = new List<GameObject>();
     private bool containerNear;
     private bool doorNear;
     private GameObject closest;
@@ -33,10 +35,17 @@ public class InteractingManager : MonoBehaviour
         }
 
         //generate door list based on tag
-        doors = GameObject.FindGameObjectsWithTag("Door");
+        doors = GameObject.FindGameObjectsWithTag("UnlockedDoor");
         foreach(GameObject door in doors)
         {
             doorList.Add(door);
+        }
+
+        //generate locked door list based on tag
+        lockedDoors = GameObject.FindGameObjectsWithTag("LockedDoor");
+        foreach (GameObject lockedDoor in lockedDoors)
+        {
+            lockedDoorList.Add(lockedDoor);
         }
     }
 
@@ -44,6 +53,7 @@ public class InteractingManager : MonoBehaviour
     void Update()
     {
         DoorCheck();
+        LockedDoorCheck();
         InteractableCheck();
     }
 
@@ -99,6 +109,69 @@ public class InteractingManager : MonoBehaviour
                 else if (!doorScript.open)
                 {
                     doorScript.open = true;
+                }
+            }
+        }
+    }
+
+    void LockedDoorCheck()
+    {
+        int counter = 0;
+        foreach (GameObject lockedDoor in lockedDoorList)
+        {
+            if (player.transform.position.x > lockedDoor.transform.position.x - distance &&
+                player.transform.position.x < lockedDoor.transform.position.x + distance &&
+                player.transform.position.z > lockedDoor.transform.position.z - distance &&
+                player.transform.position.z < lockedDoor.transform.position.z + distance)
+            {
+                doorNear = true;
+
+                //set closest
+                if (closest == null)
+                {
+                    closest = lockedDoor;
+                }
+                else if (closest != null || closest != lockedDoor)
+                {
+                    //if this item is closer
+                    if (Vector3.Distance(player.transform.position, lockedDoor.transform.position) < Vector3.Distance(player.transform.position, closest.transform.position))
+                    {
+                        closest = lockedDoor;
+                    }
+                }
+            }
+            else
+            {
+                counter++;
+            }
+        }
+        //if none of the items were near, don't bring up the option
+        if (counter == lockedDoorList.Count)
+        {
+            doorNear = false;
+        }
+
+        //if the player is near an item, let them pick it up
+        if (doorNear)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                foreach (string i in inventory)
+                {
+                    if (i == "Key")
+                    {
+                        //add code for door being in open or closed state
+                        DoorScript doorScript = closest.GetComponent<DoorScript>();
+                        //change boolean state from open to closed or vice versa
+                        if (doorScript.open)
+                        {
+                            doorScript.open = false;
+                        }
+                        else if (!doorScript.open)
+                        {
+                            doorScript.open = true;
+                        }
+                    }
                 }
             }
         }
