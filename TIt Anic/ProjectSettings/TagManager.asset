@@ -8,6 +8,8 @@ TagManager:
   - Door
   - NPC
   - LockedDoor
+  - UnlockedDoor
+  - Dresser
   layers:
   - Default
   - TransparentFX
