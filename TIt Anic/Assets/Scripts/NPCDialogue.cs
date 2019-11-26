@@ -106,7 +106,7 @@ public class NPCDialogue : MonoBehaviour
             }
             else if (npcNum == 2) //third npc
             {
-                if (player.GetComponent<InteractingManager>().evidenceCollected.Count >= 3)
+                if (player.GetComponent<InteractingManager>().evidenceCollected.Count >= 1)
                 {
                     dialogueText.text = "You win!";
                 }
@@ -115,6 +115,10 @@ public class NPCDialogue : MonoBehaviour
                     //dialogueText.text = "I'm gonna need three strong pieces of evidence to agree with your case.";
                     dialogueText.text = "You'll need to get me some evidence to back up your claim that the iceberg committed murder.";
                 }
+            }
+            else if(npcNum == 3)
+            {
+                dialogueText.text = "*Static noise*";
             }
         }
         else
