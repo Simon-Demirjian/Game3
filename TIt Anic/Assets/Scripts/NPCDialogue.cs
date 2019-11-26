@@ -14,6 +14,10 @@ public class NPCDialogue : MonoBehaviour
     private float distance;
     private GameObject closest;
 
+    private int counter = 0;
+    private bool guiOn = false;
+    private int npcNum = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,6 @@ public class NPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int counter = 0;
         //if player is near a npc, allow them to converse
         foreach (GameObject npc in npcList)
         {
@@ -54,9 +57,12 @@ public class NPCDialogue : MonoBehaviour
                     }
                 }
 
+                npcNum = counter;
+                Debug.Log(npcNum);
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
+                    guiOn = true;
                 }
             }
             else
@@ -68,14 +74,43 @@ public class NPCDialogue : MonoBehaviour
         if (counter == npcList.Count)
         {
             npcNear = false;
+            guiOn = false;
         }
+
+        counter = 0;
     }
 
     void OnGUI()
     {
-        if (npcNear) //if the player is near a npc, tell them they can converse
+        GUI.contentColor = Color.red;
+        if(guiOn)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
+            if (npcNum == 0) //first npc
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Iceberg was just here, you really missed out man!");
+            }
+            else if (npcNum == 1) //second npc
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "I saw Iceberg hanging out near the end of the ship earlier today. What a *cool* guy!");
+            }
+            else if (npcNum == 2) //third npc
+            {
+                if (player.GetComponent<InteractingManager>().evidenceCollected.Count >= 3)
+                {
+                    GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "You win!");
+                }
+                else
+                {
+                    GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "I'm gonna need three strong pieces of evidence to agree with your case.");
+                }
+            }
+        }
+        else
+        {
+            if (npcNear && !guiOn) //if the player is near a npc, tell them they can converse
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
+            }
         }
     }
 }

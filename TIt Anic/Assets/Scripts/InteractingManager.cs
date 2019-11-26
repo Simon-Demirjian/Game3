@@ -9,16 +9,18 @@ public class InteractingManager : MonoBehaviour
     public List<string> inventory;
 
     private GameObject[] containers;
-    private List<GameObject> containerList;
+    private List<GameObject> containerList = new List<GameObject>();
     private GameObject[] doors;
-    private List<GameObject> doorList;
+    private List<GameObject> doorList = new List<GameObject>();
+    private GameObject[] lockedDoors;
+    private List<GameObject> lockedDoorList = new List<GameObject>();
     private bool containerNear;
     private bool doorNear;
     private GameObject closest;
 
     private float distance;
-    
 
+    private bool collectedEvidence = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +35,17 @@ public class InteractingManager : MonoBehaviour
         }
 
         //generate door list based on tag
-        doors = GameObject.FindGameObjectsWithTag("Door");
+        doors = GameObject.FindGameObjectsWithTag("UnlockedDoor");
         foreach(GameObject door in doors)
         {
             doorList.Add(door);
+        }
+
+        //generate locked door list based on tag
+        lockedDoors = GameObject.FindGameObjectsWithTag("LockedDoor");
+        foreach (GameObject lockedDoor in lockedDoors)
+        {
+            lockedDoorList.Add(lockedDoor);
         }
     }
 
@@ -44,6 +53,7 @@ public class InteractingManager : MonoBehaviour
     void Update()
     {
         DoorCheck();
+        LockedDoorCheck();
         InteractableCheck();
     }
 
@@ -87,7 +97,7 @@ public class InteractingManager : MonoBehaviour
         //if the player is near an item, let them pick it up
         if (doorNear)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 //add code for door being in open or closed state
                 DoorScript doorScript = closest.GetComponent<DoorScript>();
@@ -99,6 +109,69 @@ public class InteractingManager : MonoBehaviour
                 else if (!doorScript.open)
                 {
                     doorScript.open = true;
+                }
+            }
+        }
+    }
+
+    void LockedDoorCheck()
+    {
+        int counter = 0;
+        foreach (GameObject lockedDoor in lockedDoorList)
+        {
+            if (player.transform.position.x > lockedDoor.transform.position.x - distance &&
+                player.transform.position.x < lockedDoor.transform.position.x + distance &&
+                player.transform.position.z > lockedDoor.transform.position.z - distance &&
+                player.transform.position.z < lockedDoor.transform.position.z + distance)
+            {
+                doorNear = true;
+
+                //set closest
+                if (closest == null)
+                {
+                    closest = lockedDoor;
+                }
+                else if (closest != null || closest != lockedDoor)
+                {
+                    //if this item is closer
+                    if (Vector3.Distance(player.transform.position, lockedDoor.transform.position) < Vector3.Distance(player.transform.position, closest.transform.position))
+                    {
+                        closest = lockedDoor;
+                    }
+                }
+            }
+            else
+            {
+                counter++;
+            }
+        }
+        //if none of the items were near, don't bring up the option
+        if (counter == lockedDoorList.Count)
+        {
+            doorNear = false;
+        }
+
+        //if the player is near an item, let them pick it up
+        if (doorNear)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                foreach (string i in inventory)
+                {
+                    if (i == "Key")
+                    {
+                        //add code for door being in open or closed state
+                        DoorScript doorScript = closest.GetComponent<DoorScript>();
+                        //change boolean state from open to closed or vice versa
+                        if (doorScript.open)
+                        {
+                            doorScript.open = false;
+                        }
+                        else if (!doorScript.open)
+                        {
+                            doorScript.open = true;
+                        }
+                    }
                 }
             }
         }
@@ -139,12 +212,13 @@ public class InteractingManager : MonoBehaviour
         if (counter == containerList.Count)
         {
             containerNear = false;
+            collectedEvidence = false;
         }
 
         //if the player is near an item, let them pick it up
         if (containerNear)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 ContainerScript containerScript = closest.GetComponent<ContainerScript>();
                 //change the container's state to being open
@@ -163,12 +237,42 @@ public class InteractingManager : MonoBehaviour
                 {
                     evidenceCollected.Add(containerScript.item);
                     inventory.Add(containerScript.item);
+
+                    containerScript.item = "Empty";
+                    containerScript.contains = false;
+                    containerScript.containsEvidence = false;
+
+                    collectedEvidence = true;
                 }
                 else if (containerScript.contains)
                 {
                     inventory.Add(containerScript.item);
+
+                    containerScript.item = "Empty";
+                    containerScript.contains = false;
                 }
             }
+        }
+    }
+
+    void OnGUI()
+    {
+        GUI.contentColor = Color.red;
+        //prompt to interact with item
+        if (containerNear)
+        {
+            if(collectedEvidence)
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Evidence Collected!");
+            }
+            else
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+            }
+        }
+        else if (doorNear)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to open/close");
         }
     }
 }

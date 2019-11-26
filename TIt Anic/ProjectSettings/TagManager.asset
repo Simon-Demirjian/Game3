@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Container
   - Door
+  - NPC
+  - LockedDoor
   layers:
   - Default
   - TransparentFX

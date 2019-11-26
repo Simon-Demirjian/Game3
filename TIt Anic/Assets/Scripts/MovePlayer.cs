@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -11,12 +14,19 @@ public class MovePlayer : MonoBehaviour
     float x;
     float z;
 
+    float timerMax = 180;
+    float timer;
+    string thisScene;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody>();
         x = 1;
         z = 1;
+
+        timer = 0;
+        thisScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -25,6 +35,13 @@ public class MovePlayer : MonoBehaviour
         body.velocity = magnitude * new Vector3(Input.GetAxisRaw("Horizontal") * x, body.velocity.y, Input.GetAxisRaw("Vertical") * z);
         x = 1;
         z = 1;
+
+        timer += Time.deltaTime;
+
+        if(timer >= timerMax)
+        {
+            SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
+        }
     }
 
     private void OnCollisionStay(Collision collision)
