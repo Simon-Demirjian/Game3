@@ -112,7 +112,8 @@ public class NPCDialogue : MonoBehaviour
                 }
                 else
                 {
-                    dialogueText.text = "I'm gonna need three strong pieces of evidence to agree with your case.";
+                    //dialogueText.text = "I'm gonna need three strong pieces of evidence to agree with your case.";
+                    dialogueText.text = "You'll need to get me some evidence to back up your claim that the iceberg committed murder.";
                 }
             }
         }
