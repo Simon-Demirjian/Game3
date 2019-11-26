@@ -295,8 +295,21 @@ public class InteractingManager : MonoBehaviour
                     containerScript.open = true;
                 }
 
-                //if the container held an item, add it to the inventory
-                if (containerScript.containsEvidence)
+
+                if (!containerScript.playerHasRequiredItem && containerScript.requiredItem != "") // if there is a required item for this container, check if the player has it
+                {
+                    foreach (string i in inventory)
+                    {
+                        if (i == containerScript.requiredItem)
+                        {
+                            containerScript.playerHasRequiredItem = true;
+                            // Attempting to remove the sprite from the inventory once the required item is used.
+                            //inventory.Remove(containerScript.requiredItem);
+                            //inventorySprites.Remove(containerScript.requiredItem);
+                        }
+                    }
+                }               
+                if (containerScript.containsEvidence && containerScript.playerHasRequiredItem) //if the container held an item, add it to the inventory
                 {
                     evidenceCollected.Add(containerScript.item);
                     inventory.Add(containerScript.item);
@@ -308,7 +321,7 @@ public class InteractingManager : MonoBehaviour
 
                     collectedEvidence = true;
                 }
-                else if (containerScript.contains)
+                else if (containerScript.contains && containerScript.playerHasRequiredItem)
                 {
                     inventory.Add(containerScript.item);
                     inventorySprites.Add(containerScript.item, containerScript.image);

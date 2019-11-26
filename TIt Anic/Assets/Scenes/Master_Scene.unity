@@ -213,9 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
-  contains: 1
+  contains: 0
   containsEvidence: 0
   item: Dirt
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 806ef7c415001db468bfdb905db1371d, type: 3}
 --- !u!1001 &184520623
 PrefabInstance:
@@ -473,6 +475,8 @@ MonoBehaviour:
   contains: 1
   containsEvidence: 0
   item: Empty Vial
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: cdd69989da206e0439b7d840ef834afd, type: 3}
 --- !u!114 &196448983
 MonoBehaviour:
@@ -490,6 +494,8 @@ MonoBehaviour:
   contains: 0
   containsEvidence: 0
   item: 
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 0}
 --- !u!1001 &214807437
 PrefabInstance:
@@ -1019,8 +1025,10 @@ MonoBehaviour:
   open: 0
   contains: 1
   containsEvidence: 0
-  item: Drak's Tiny Brain
-  image: {fileID: 0}
+  item: Glass Vial
+  requiredItem: 
+  playerHasRequiredItem: 0
+  image: {fileID: 21300000, guid: cdd69989da206e0439b7d840ef834afd, type: 3}
 --- !u!1001 &486183570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2597,9 +2605,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
-  contains: 1
-  containsEvidence: 1
+  contains: 0
+  containsEvidence: 0
   item: Papers
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 0}
 --- !u!1001 &1380519892
 PrefabInstance:
@@ -2713,6 +2723,8 @@ MonoBehaviour:
   contains: 1
   containsEvidence: 1
   item: Bloody Water
+  requiredItem: Empty Vial
+  playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 1c33f387a74b30345974d4dfe8006306, type: 3}
 --- !u!114 &1380519896
 MonoBehaviour:
@@ -2730,6 +2742,8 @@ MonoBehaviour:
   contains: 0
   containsEvidence: 0
   item: 
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 0}
 --- !u!1 &1399113510
 GameObject:
@@ -3159,7 +3173,9 @@ MonoBehaviour:
   open: 0
   contains: 1
   containsEvidence: 0
-  item: Key to Room B
+  item: Key
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: b45854a0176235145b8c09855589bd84, type: 3}
 --- !u!1001 &1675357435
 PrefabInstance:
@@ -3596,9 +3612,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
-  contains: 1
+  contains: 0
   containsEvidence: 0
   item: Drak's Tiny Brain
+  requiredItem: 
+  playerHasRequiredItem: 0
   image: {fileID: 0}
 --- !u!1001 &1860746975
 PrefabInstance:
@@ -3848,7 +3866,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c2f68e39766a50244bbfafd255669691,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.95
+      value: -31.65
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c2f68e39766a50244bbfafd255669691,
         type: 3}
@@ -3858,7 +3876,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c2f68e39766a50244bbfafd255669691,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.98
+      value: 3.94
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c2f68e39766a50244bbfafd255669691,
         type: 3}
@@ -4004,15 +4022,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065686671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56ef626bd142f3c4baaebda7ab5d7069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
-  contains: 0
-  containsEvidence: 0
-  item: Bloody Ice
+  contains: 1
+  containsEvidence: 1
+  item: Bloody Water
+  requiredItem: Glass Vial
+  playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 1c33f387a74b30345974d4dfe8006306, type: 3}
 --- !u!1001 &2082491553
 PrefabInstance:
