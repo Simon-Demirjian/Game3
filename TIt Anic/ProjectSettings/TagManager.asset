@@ -10,6 +10,9 @@ TagManager:
   - LockedDoor
   - UnlockedDoor
   - Dresser
+  - Dialogue Holder
+  - Name Text
+  - Dialogue Text
   layers:
   - Default
   - TransparentFX
