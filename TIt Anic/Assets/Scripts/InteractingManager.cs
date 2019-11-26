@@ -7,6 +7,7 @@ public class InteractingManager : MonoBehaviour
     public GameObject player;
     public List<string> evidenceCollected;
     public List<string> inventory;
+    public Dictionary<string, Sprite> inventorySprites;
 
     private GameObject[] containers;
     private List<GameObject> containerList = new List<GameObject>();
@@ -25,6 +26,7 @@ public class InteractingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventorySprites = new Dictionary<string, Sprite>();
         distance = 1.0f;
 
         //generate container list based on tag
@@ -237,6 +239,7 @@ public class InteractingManager : MonoBehaviour
                 {
                     evidenceCollected.Add(containerScript.item);
                     inventory.Add(containerScript.item);
+                    inventorySprites.Add(containerScript.item, containerScript.image);
 
                     containerScript.item = "Empty";
                     containerScript.contains = false;
@@ -247,6 +250,7 @@ public class InteractingManager : MonoBehaviour
                 else if (containerScript.contains)
                 {
                     inventory.Add(containerScript.item);
+                    inventorySprites.Add(containerScript.item, containerScript.image);
 
                     containerScript.item = "Empty";
                     containerScript.contains = false;
