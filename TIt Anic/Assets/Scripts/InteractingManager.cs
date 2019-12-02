@@ -26,7 +26,7 @@ public class InteractingManager : MonoBehaviour
 
     private bool collectedEvidence = false;
 
-    public Animation dressAnim;
+    public Animator dressAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +61,6 @@ public class InteractingManager : MonoBehaviour
         {
             dresserList.Add(dresser);
         }
-        dressAnim = gameObject.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -113,9 +112,21 @@ public class InteractingManager : MonoBehaviour
         //if the player is near an item, let them pick it up
         if (doorNear)
         {
+            //dressAnim = closest.GetComponent<Animator>();
+
+
             if (Input.GetKeyDown(KeyCode.E))
-            {
-                dressAnim.Play();
+            {       
+                AnimationScript animScript = closest.GetComponent<AnimationScript>();
+                if (animScript.open)
+                {
+                    animScript.open = false;
+                }
+                else if (!animScript.open)
+                {
+                    animScript.open = true;
+                }
+                //dressAnim.Play("DresserOpen");
 
             }
         }

@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: bb76bf914a2f16b4e8825b2e7522a5d8
+guid: 07ecbe42ef9b0194986eab0230973e64
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - player: {instanceID: 0}
-  - dressAnim: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
