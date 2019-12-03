@@ -232,12 +232,12 @@ public class InteractingManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                DoorScript doorScript = closest.GetComponent<DoorScript>();
                 foreach (string i in inventory)
                 {
-                    if (i == "Key")
+                    if (i == doorScript.key)
                     {
                         //add code for door being in open or closed state
-                        DoorScript doorScript = closest.GetComponent<DoorScript>();
                         //change boolean state from open to closed or vice versa
                         if (doorScript.open)
                         {
