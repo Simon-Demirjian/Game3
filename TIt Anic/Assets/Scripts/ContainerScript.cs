@@ -11,10 +11,13 @@ public class ContainerScript : MonoBehaviour
     public string requiredItem;
     public bool playerHasRequiredItem;
     public Sprite image;
+    public bool visited;
 
     // Start is called before the first frame update
     void Start()
     {
+        visited = false;
+
         if(requiredItem == "")
             playerHasRequiredItem = true;
         else
