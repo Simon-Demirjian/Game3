@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
+//using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
@@ -17,6 +17,8 @@ public class MovePlayer : MonoBehaviour
     float timerMax = 180;
     float timer;
     string thisScene;
+    string trialScene;
+    string masterScene;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,8 @@ public class MovePlayer : MonoBehaviour
 
         timer = 0;
         thisScene = SceneManager.GetActiveScene().name;
+        masterScene = "Master_Scene";
+        trialScene = "Scene_Jury";
     }
 
     // Update is called once per frame
@@ -40,7 +44,18 @@ public class MovePlayer : MonoBehaviour
 
         if(timer >= timerMax)
         {
-            SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
+            if (thisScene.Equals("Scene_Jury"))
+            {
+                //SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
+                SceneManager.LoadScene(masterScene);
+
+            }
+
+            else
+            {
+                SceneManager.LoadScene(trialScene);
+
+            }
         }
     }
 

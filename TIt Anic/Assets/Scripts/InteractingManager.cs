@@ -20,7 +20,9 @@ public class InteractingManager : MonoBehaviour
 
     private bool containerNear;
     private bool doorNear;
+    private bool dresserNear;
     private GameObject closest;
+    private GameObject closestDresser;
 
     private float distance;
 
@@ -82,7 +84,7 @@ public class InteractingManager : MonoBehaviour
                 player.transform.position.z > dresser.transform.position.z - distance &&
                 player.transform.position.z < dresser.transform.position.z + distance)
             {
-                doorNear = true;
+                dresserNear = true;
 
                 //set closest
                 if (closest == null)
@@ -106,18 +108,18 @@ public class InteractingManager : MonoBehaviour
         //if none of the items were near, don't bring up the option
         if (counter == dresserList.Count)
         {
-            doorNear = false;
+            dresserNear = false;
         }
 
         //if the player is near an item, let them pick it up
-        if (doorNear)
+        if (dresserNear)
         {
             //dressAnim = closest.GetComponent<Animator>();
 
-
             if (Input.GetKeyDown(KeyCode.E))
-            {       
+            {
                 AnimationScript animScript = closest.GetComponent<AnimationScript>();
+
                 if (animScript.open)
                 {
                     animScript.open = false;
