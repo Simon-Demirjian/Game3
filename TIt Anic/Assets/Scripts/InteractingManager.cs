@@ -24,6 +24,7 @@ public class InteractingManager : MonoBehaviour
     private float distance;
 
     private bool collectedEvidence = false;
+    private bool visited = false;
 
     public Animator dressAnim;
 
@@ -165,12 +166,12 @@ public class InteractingManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                DoorScript doorScript = closest.GetComponent<DoorScript>();
                 foreach (string i in inventory)
                 {
-                    if (i == "Key")
+                    if (i == doorScript.key)
                     {
                         //add code for door being in open or closed state
-                        DoorScript doorScript = closest.GetComponent<DoorScript>();
                         //change boolean state from open to closed or vice versa
                         if (doorScript.open)
                         {
@@ -227,9 +228,13 @@ public class InteractingManager : MonoBehaviour
         //if the player is near an item, let them pick it up
         if (containerNear)
         {
+            ContainerScript containerScript = closest.GetComponent<ContainerScript>();
+            visited = containerScript.visited;
+
             if (Input.GetKeyDown(KeyCode.E))
             {
-                ContainerScript containerScript = closest.GetComponent<ContainerScript>();
+                containerScript.visited = true;
+
                 //change the container's state to being open
                 //change boolean state from open to closed or vice versa
                 if (containerScript.open)
@@ -289,9 +294,13 @@ public class InteractingManager : MonoBehaviour
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Evidence Collected!");
             }
-            else
+            else if(!visited)
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+            }
+            else
+            {
+                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Nothing here");
             }
         }
         else if (doorNear)
