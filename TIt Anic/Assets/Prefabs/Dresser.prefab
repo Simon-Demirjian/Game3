@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8942329992530043629}
   - component: {fileID: 6334663279902535704}
   m_Layer: 0
-  m_Name: Dresser (2)
+  m_Name: Dresser
   m_TagString: Dresser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2650601093520784772}
   m_LocalRotation: {x: -0, y: 0.99999064, z: -0, w: -0.004325864}
-  m_LocalPosition: {x: -11.799231, y: 1.5662603, z: 4.388303}
+  m_LocalPosition: {x: -5.8885, y: 1.5662601, z: 7.037876}
   m_LocalScale: {x: 82.91193, y: 82.91193, z: 82.91193}
   m_Children:
   - {fileID: 1444915594403319646}

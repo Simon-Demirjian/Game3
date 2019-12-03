@@ -15,14 +15,11 @@ public class InteractingManager : MonoBehaviour
     private List<GameObject> doorList = new List<GameObject>();
     private GameObject[] lockedDoors;
     private List<GameObject> lockedDoorList = new List<GameObject>();
-    private GameObject[] dressers;
-    private List<GameObject> dresserList = new List<GameObject>();
+   
 
     private bool containerNear;
     private bool doorNear;
-    private bool dresserNear;
     private GameObject closest;
-    private GameObject closestDresser;
 
     private float distance;
 
@@ -57,82 +54,18 @@ public class InteractingManager : MonoBehaviour
             lockedDoorList.Add(lockedDoor);
         }
 
-        //generate dresser list based on tag
-        dressers = GameObject.FindGameObjectsWithTag("Dresser");
-        foreach (GameObject dresser in dressers)
-        {
-            dresserList.Add(dresser);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         DoorCheck();
-        DresserCheck();
         LockedDoorCheck();
         InteractableCheck();
     }
 
-    void DresserCheck()
-    {
-        int counter = 0;
-        foreach (GameObject dresser in dresserList)
-        {
-            if (player.transform.position.x > dresser.transform.position.x - distance &&
-                player.transform.position.x < dresser.transform.position.x + distance &&
-                player.transform.position.z > dresser.transform.position.z - distance &&
-                player.transform.position.z < dresser.transform.position.z + distance)
-            {
-                dresserNear = true;
-
-                //set closest
-                if (closest == null)
-                {
-                    closest = dresser;
-                }
-                else if (closest != null || closest != dresser)
-                {
-                    //if this item is closer
-                    if (Vector3.Distance(player.transform.position, dresser.transform.position) < Vector3.Distance(player.transform.position, closest.transform.position))
-                    {
-                        closest = dresser;
-                    }
-                }
-            }
-            else
-            {
-                counter++;
-            }
-        }
-        //if none of the items were near, don't bring up the option
-        if (counter == dresserList.Count)
-        {
-            dresserNear = false;
-        }
-
-        //if the player is near an item, let them pick it up
-        if (dresserNear)
-        {
-            //dressAnim = closest.GetComponent<Animator>();
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                AnimationScript animScript = closest.GetComponent<AnimationScript>();
-
-                if (animScript.open)
-                {
-                    animScript.open = false;
-                }
-                else if (!animScript.open)
-                {
-                    animScript.open = true;
-                }
-                //dressAnim.Play("DresserOpen");
-
-            }
-        }
-    }
+    
     void DoorCheck()
     {
         int counter = 0;
