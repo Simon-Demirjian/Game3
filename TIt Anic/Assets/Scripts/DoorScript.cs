@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     public bool open;
+    public string key;
 
     private bool previousState;
 

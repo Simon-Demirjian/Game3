@@ -891,11 +891,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6888085068972520798}
     m_Modifications:
-    - target: {fileID: 8990085788104621967, guid: bf70cf64de6d77c499ef9937311c2ef4,
-        type: 3}
-      propertyPath: m_Name
-      value: Barrier (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8990085788104621966, guid: bf70cf64de6d77c499ef9937311c2ef4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -950,6 +945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990085788104621967, guid: bf70cf64de6d77c499ef9937311c2ef4,
+        type: 3}
+      propertyPath: m_Name
+      value: Barrier (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf70cf64de6d77c499ef9937311c2ef4, type: 3}
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   open: 0
   contains: 1
   containsEvidence: 0
-  item: Key
+  item: RedKey
   requiredItem: 
   playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: b45854a0176235145b8c09855589bd84, type: 3}
@@ -2678,6 +2678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: open
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: key
+      value: RedKey
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
@@ -3172,6 +3177,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 971288310955079142, guid: 5d245b59d466ab945acb21e2eca2c56f,
+        type: 3}
+      propertyPath: m_Name
+      value: Room2
+      objectReference: {fileID: 0}
     - target: {fileID: 3497848488321705105, guid: 5d245b59d466ab945acb21e2eca2c56f,
         type: 3}
       propertyPath: m_Name
@@ -3256,11 +3266,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -38.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 971288310955079142, guid: 5d245b59d466ab945acb21e2eca2c56f,
-        type: 3}
-      propertyPath: m_Name
-      value: Room2
       objectReference: {fileID: 0}
     - target: {fileID: 6888085070184170571, guid: 5d245b59d466ab945acb21e2eca2c56f,
         type: 3}
