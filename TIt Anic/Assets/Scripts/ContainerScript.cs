@@ -16,15 +16,21 @@ public class ContainerScript : MonoBehaviour
     private GameObject[] containers;
 
     public GameObject player;
+
     private float dresserDistance;
     private bool dresserNear;
     private GameObject closestDresser;
 
-    private List<GameObject> dresserList = new List<GameObject>();
+    private float standDistance;
+    private bool standNear;
+    private GameObject closestStand;
 
+    private List<GameObject> dresserList = new List<GameObject>();
     private List<GameObject> nightStandList = new List<GameObject>();
 
     public Animator dressAnim;
+    public Animator standAnim;
+
 
 
     // Start is called before the first frame update
@@ -39,7 +45,7 @@ public class ContainerScript : MonoBehaviour
 
 
         dresserDistance = 1.5f;
-
+        standDistance = 1.5f;
         //generate dresser list based on tag
 
         containers = GameObject.FindGameObjectsWithTag("Container");
@@ -52,7 +58,7 @@ public class ContainerScript : MonoBehaviour
 
             }
 
-            if (container.GetComponent<Animator>().avatar.name == "DresserAvatar")
+            if (container.GetComponent<Animator>().avatar.name == "Night_StandAvatar")
             {
                 nightStandList.Add(container);
 
@@ -140,26 +146,26 @@ public class ContainerScript : MonoBehaviour
     void NightStandCheck()
     {
         int counter = 0;
-        foreach (GameObject dresser in dresserList)
+        foreach (GameObject stand in nightStandList)
         {
-            if (player.transform.position.x > dresser.transform.position.x - dresserDistance &&
-                player.transform.position.x < dresser.transform.position.x + dresserDistance &&
-                player.transform.position.z > dresser.transform.position.z - dresserDistance &&
-                player.transform.position.z < dresser.transform.position.z + dresserDistance)
+            if (player.transform.position.x > stand.transform.position.x - standDistance &&
+                player.transform.position.x < stand.transform.position.x + standDistance &&
+                player.transform.position.z > stand.transform.position.z - standDistance &&
+                player.transform.position.z < stand.transform.position.z + standDistance)
             {
-                dresserNear = true;
+                standNear = true;
 
                 //set closest
-                if (closestDresser == null)
+                if (closestStand == null)
                 {
-                    closestDresser = dresser;
+                    closestStand = stand;
                 }
-                else if (closestDresser != null || closestDresser != dresser)
+                else if (closestStand != null || closestStand != stand)
                 {
                     //if this item is closer
-                    if (Vector3.Distance(player.transform.position, dresser.transform.position) < Vector3.Distance(player.transform.position, closestDresser.transform.position))
+                    if (Vector3.Distance(player.transform.position, stand.transform.position) < Vector3.Distance(player.transform.position, closestStand.transform.position))
                     {
-                        closestDresser = dresser;
+                        closestStand = stand;
                     }
                 }
             }
@@ -169,20 +175,20 @@ public class ContainerScript : MonoBehaviour
             }
         }
         //if none of the items were near, don't bring up the option
-        if (counter == dresserList.Count)
+        if (counter == nightStandList.Count)
         {
-            dresserNear = false;
+            standNear = false;
         }
 
         //if the player is near an item, let them pick it up
-        if (dresserNear)
+        if (standNear)
         {
             //dressAnim = closest.GetComponent<Animator>();
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //AnimationScript animScript = closestDresser.GetComponent<AnimationScript>();
-                dressAnim = GetComponent<Animator>();
+                standAnim = GetComponent<Animator>();
 
                 //if (animScript.open)
                 //{
@@ -192,7 +198,7 @@ public class ContainerScript : MonoBehaviour
                 //{
                 //    animScript.open = true;
                 //}
-                dressAnim.Play("DresserOpen");
+                standAnim.Play("NightStandOpen");
 
             }
         }
