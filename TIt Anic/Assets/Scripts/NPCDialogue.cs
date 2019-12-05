@@ -19,9 +19,13 @@ public class NPCDialogue : MonoBehaviour
     private bool guiOn = false;
     private int npcNum = 0;
 
-    private GameObject dialogueHolder;
-    private Text dialogueText;
-    private Text nameText;
+    private static Canvas interactionTextHolder;
+    private static Text interactionText;
+    private static bool called = false;
+
+    private static Canvas dialogueHolder;
+    private static Text dialogueText;
+    private static Text nameText;
 
     // Start is called before the first frame update
     void Start()
@@ -34,60 +38,78 @@ public class NPCDialogue : MonoBehaviour
             npcList.Add(npc);
         }
 
-        dialogueHolder = GameObject.FindGameObjectWithTag("Dialogue Holder");
+        dialogueHolder = GameObject.FindGameObjectWithTag("Dialogue Holder").GetComponent<Canvas>();
         dialogueText = GameObject.FindGameObjectWithTag("Dialogue Text").GetComponent<Text>();
         nameText = GameObject.FindGameObjectWithTag("Name Text").GetComponent<Text>();
+        interactionTextHolder = GameObject.FindGameObjectWithTag("Interaction Text Holder").GetComponent<Canvas>();
+        interactionText = GameObject.FindGameObjectWithTag("Interaction Text").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if player is near a npc, allow them to converse
-        foreach (GameObject npc in npcList)
-        {
-            //player is within a certain radius of npc
-            if (player.transform.position.x > npc.transform.position.x - distance &&
-                player.transform.position.x < npc.transform.position.x + distance &&
-                player.transform.position.z > npc.transform.position.z - distance &&
-                player.transform.position.z < npc.transform.position.z + distance)
-            {
-                npcNear = true;
 
-                //set closest
-                if (closest == null)
+        // Lock the player's movement if they are talking 
+        // End the locking when they press E again
+        if (guiOn)
+        {
+            player.GetComponent<MovePlayer>().canMove = false;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                guiOn = false;
+                player.GetComponent<MovePlayer>().canMove = true;
+            }
+        }
+        else
+        {
+
+            //if player is near a npc, allow them to converse
+            foreach (GameObject npc in npcList)
+            {
+                //player is within a certain radius of npc
+                if (player.transform.position.x > npc.transform.position.x - distance &&
+                    player.transform.position.x < npc.transform.position.x + distance &&
+                    player.transform.position.z > npc.transform.position.z - distance &&
+                    player.transform.position.z < npc.transform.position.z + distance)
                 {
-                    closest = npc;
-                }
-                else if (closest != null || closest != npc)
-                {
-                    //if this npc is closer
-                    if (Vector3.Distance(player.transform.position, npc.transform.position) < Vector3.Distance(player.transform.position, closest.transform.position))
+                    npcNear = true;
+
+                    //set closest
+                    if (closest == null)
                     {
                         closest = npc;
                     }
+                    else if (closest != null || closest != npc)
+                    {
+                        //if this npc is closer
+                        if (Vector3.Distance(player.transform.position, npc.transform.position) < Vector3.Distance(player.transform.position, closest.transform.position))
+                        {
+                            closest = npc;
+                        }
+                    }
+
+                    npcNum = counter;
+                    Debug.Log(npcNum);
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        guiOn = true;
+                    }
                 }
-
-                npcNum = counter;
-                Debug.Log(npcNum);
-
-                if (Input.GetKeyDown(KeyCode.E))
+                else
                 {
-                    guiOn = true;
+                    counter++;
                 }
             }
-            else
+            //if none of the npcs were near, don't bring up the option
+            if (counter == npcList.Count)
             {
-                counter++;
+                npcNear = false;
+                guiOn = false;
             }
-        }
-        //if none of the npcs were near, don't bring up the option
-        if (counter == npcList.Count)
-        {
-            npcNear = false;
-            guiOn = false;
-        }
 
-        counter = 0;
+            counter = 0;
+        }
     }
 
     void OnGUI()
@@ -95,43 +117,33 @@ public class NPCDialogue : MonoBehaviour
         GUI.contentColor = Color.red;
         if(guiOn)
         {
-            dialogueHolder.GetComponent<Canvas>().enabled = true;
-            nameText.text = "NPC";
+            // Turns on the dialogue boxes
+            dialogueHolder.enabled = true;
+            interactionTextHolder.enabled = false;
+            nameText.text = npcList[npcNum].GetComponent<NPC>().npcName;
             dialogueText.text = npcList[npcNum].GetComponent<NPC>().Call();
-            /*
-            if (npcNum == 0) //first npc
-            {
-                dialogueText.text = "Iceberg was just here, you really missed out man!";
-            }
-            else if (npcNum == 1) //second npc
-            {
-                dialogueText.text = "I saw Iceberg hanging out near the end of the ship earlier today. What a *cool* guy!";
-            }
-            else if (npcNum == 2) //third npc
-            {
-                if (player.GetComponent<InteractingManager>().evidenceCollected.Count >= 1)
-                {
-                    dialogueText.text = "You win!";
-                }
-                else
-                {
-                    //dialogueText.text = "I'm gonna need three strong pieces of evidence to agree with your case.";
-                    dialogueText.text = "You'll need to get me some evidence to back up your claim that the iceberg committed murder.";
-                }
-            }
-            else if(npcNum == 3)
-            {
-                dialogueText.text = "*Static noise*";
-            }
-            */
         }
         else
         {
-            dialogueHolder.GetComponent<Canvas>().enabled = false;
+            // Switches off dialogue boxes
+            dialogueHolder.enabled = false;
             if (npcNear && !guiOn) //if the player is near a npc, tell them they can converse
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
+                InteractionText("Press E to talk");
             }
+            else if(!called)
+            {
+                interactionTextHolder.enabled = false;
+            }
+            called = false;
         }
+    }
+
+    public static void InteractionText(string text)
+    {
+        dialogueHolder.enabled = false;
+        interactionTextHolder.enabled = true;
+        interactionText.text = text;
+        called = true;
     }
 }

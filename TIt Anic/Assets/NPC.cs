@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour
     private GameObject player;
     private InteractingManager interactionManager;
 
+    public string npcName;
     public string message;
 
     public bool condition;
@@ -28,6 +29,10 @@ public class NPC : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Gets the objects line to display
+    /// </summary>
+    /// <returns>String to be displayed</returns>
     public string Call()
     {
 
@@ -51,6 +56,7 @@ public class NPC : MonoBehaviour
     }
 }
 
+// Editor script so that options don't always show up
 [CustomEditor(typeof(NPC))]
 public class NPCEditor : Editor
 {
@@ -58,6 +64,7 @@ public class NPCEditor : Editor
     {
         NPC script = target as NPC;
 
+        script.npcName = EditorGUILayout.TextField("Name", script.npcName);
         script.message = EditorGUILayout.TextField("Message", script.message);
         script.condition = EditorGUILayout.Toggle("Conditional Message", script.condition);
 

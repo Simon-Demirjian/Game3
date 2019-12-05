@@ -19,6 +19,9 @@ public class MovePlayer : MonoBehaviour
     string thisScene;
     string trialScene;
     string masterScene;
+    
+    [HideInInspector]
+    public bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +39,12 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        body.velocity = magnitude * new Vector3(Input.GetAxisRaw("Horizontal") * x, body.velocity.y, Input.GetAxisRaw("Vertical") * z);
-        x = 1;
-        z = 1;
+        if(canMove)
+        {
+            body.velocity = magnitude * new Vector3(Input.GetAxisRaw("Horizontal") * x, body.velocity.y, Input.GetAxisRaw("Vertical") * z);
+            x = 1;
+            z = 1;
+        }
 
         timer += Time.deltaTime;
 
