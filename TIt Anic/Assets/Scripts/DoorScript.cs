@@ -6,6 +6,7 @@ public class DoorScript : MonoBehaviour
 {
     public bool open;
     public string key;
+    public bool isLocked;
 
     private bool previousState;
 
