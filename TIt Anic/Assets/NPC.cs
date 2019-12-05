@@ -76,7 +76,7 @@ public class NPCEditor : Editor
             script.numberOfItems = EditorGUILayout.IntSlider("Number of Items", script.numberOfItems, 0, 5);
             string[] temp = script.requiredItems;
             script.requiredItems = new string[script.numberOfItems];
-            for (int i = 0; i < temp.Length; i++)
+            for (int i = 0; i < temp.Length && i < script.numberOfItems; i++)
             {
                 script.requiredItems[i] = temp[i];
             }
