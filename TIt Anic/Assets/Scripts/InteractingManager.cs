@@ -24,7 +24,9 @@ public class InteractingManager : MonoBehaviour
     private float distance;
 
     private bool collectedEvidence = false;
+    private bool collectedItem = false;
     private bool visited = false;
+    private bool doorLocked;
 
     public Animator dressAnim;
 
@@ -61,6 +63,7 @@ public class InteractingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        doorNear = false;
         DoorCheck();
         LockedDoorCheck();
         InteractableCheck();
@@ -97,11 +100,6 @@ public class InteractingManager : MonoBehaviour
             {
                 counter++;
             }
-        }
-        //if none of the items were near, don't bring up the option
-        if (counter == doorList.Count)
-        {
-            doorNear = false;
         }
 
         //if the player is near an item, let them pick it up
@@ -155,22 +153,20 @@ public class InteractingManager : MonoBehaviour
                 counter++;
             }
         }
-        //if none of the items were near, don't bring up the option
-        if (counter == lockedDoorList.Count)
-        {
-            doorNear = false;
-        }
 
         //if the player is near an item, let them pick it up
         if (doorNear)
         {
+            DoorScript doorScript = closest.GetComponent<DoorScript>();
+            doorLocked = doorScript.isLocked;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DoorScript doorScript = closest.GetComponent<DoorScript>();
                 foreach (string i in inventory)
                 {
                     if (i == doorScript.key)
                     {
+                        doorScript.isLocked = false;
+                        doorLocked = doorScript.isLocked;
                         //add code for door being in open or closed state
                         //change boolean state from open to closed or vice versa
                         if (doorScript.open)
@@ -223,6 +219,7 @@ public class InteractingManager : MonoBehaviour
         {
             containerNear = false;
             collectedEvidence = false;
+            collectedItem = false;
         }
 
         //if the player is near an item, let them pick it up
@@ -279,6 +276,8 @@ public class InteractingManager : MonoBehaviour
 
                     containerScript.item = "Empty";
                     containerScript.contains = false;
+
+                    collectedItem = true;
                 }
             }
         }
@@ -292,20 +291,31 @@ public class InteractingManager : MonoBehaviour
         {
             if(collectedEvidence)
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Evidence Collected!");
+                NPCDialogue.InteractionText("Evidence Collected!");
+            }
+            else if(collectedItem)
+            {
+                NPCDialogue.InteractionText("Picked Up Item");
             }
             else if(!visited)
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to interact");
+                NPCDialogue.InteractionText("Press E to interact");
             }
             else
             {
-                GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Nothing here");
+                NPCDialogue.InteractionText("Nothing here");
             }
         }
         else if (doorNear)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to open/close");
+            if(!doorLocked)
+            {
+                NPCDialogue.InteractionText("Press E to open/close");
+            }
+            else
+            {
+                NPCDialogue.InteractionText("Locked, needs a key");
+            }
         }
     }
 }
