@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NPCDialogue : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private List<GameObject> npcList = new List<GameObject>();
     private GameObject[] npcs;
 
@@ -26,6 +26,7 @@ public class NPCDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         distance = 2.0f;
         npcs = GameObject.FindGameObjectsWithTag("NPC");
         foreach (GameObject npc in npcs)
@@ -94,8 +95,10 @@ public class NPCDialogue : MonoBehaviour
         GUI.contentColor = Color.red;
         if(guiOn)
         {
-            dialogueHolder.SetActive(true);
+            dialogueHolder.GetComponent<Canvas>().enabled = true;
             nameText.text = "NPC";
+            dialogueText.text = npcList[npcNum].GetComponent<NPC>().Call();
+            /*
             if (npcNum == 0) //first npc
             {
                 dialogueText.text = "Iceberg was just here, you really missed out man!";
@@ -120,10 +123,11 @@ public class NPCDialogue : MonoBehaviour
             {
                 dialogueText.text = "*Static noise*";
             }
+            */
         }
         else
         {
-            dialogueHolder.SetActive(false);
+            dialogueHolder.GetComponent<Canvas>().enabled = false;
             if (npcNear && !guiOn) //if the player is near a npc, tell them they can converse
             {
                 GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 + 60, 250, 50), "Press E to talk");
