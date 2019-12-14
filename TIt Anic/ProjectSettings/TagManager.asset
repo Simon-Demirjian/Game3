@@ -15,6 +15,7 @@ TagManager:
   - Dialogue Text
   - Interaction Text Holder
   - Interaction Text
+  - Top
   layers:
   - Default
   - TransparentFX

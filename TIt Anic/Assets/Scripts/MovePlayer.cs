@@ -9,6 +9,12 @@ public class MovePlayer : MonoBehaviour
 {
     Rigidbody body;
 
+    public GameObject titanicTop;
+
+    public GameObject marker1;
+    public GameObject marker3;
+
+
     [SerializeField]
     float magnitude;
     float x;
@@ -19,7 +25,15 @@ public class MovePlayer : MonoBehaviour
     string thisScene;
     string trialScene;
     string masterScene;
-    
+
+    float titanicTopWidth1;
+    float titanicTopLength1;
+    float titanicTopWidth2;
+    float titanicTopLength2;
+
+    private GameObject[] tops;
+    private List<GameObject> topList = new List<GameObject>();
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -34,6 +48,14 @@ public class MovePlayer : MonoBehaviour
         thisScene = SceneManager.GetActiveScene().name;
         masterScene = "Master_Scene";
         trialScene = "Scene_Jury";
+
+
+        tops = GameObject.FindGameObjectsWithTag("Top");
+        foreach (GameObject top in tops)
+        {
+            topList.Add(top);
+        }
+
     }
 
     // Update is called once per frame
@@ -63,6 +85,97 @@ public class MovePlayer : MonoBehaviour
 
             }
         }
+
+
+        titanicTopWidth1 = titanicTop.transform.position.x - marker1.transform.position.x;
+        titanicTopLength1 = titanicTop.transform.position.z - marker1.transform.position.z;
+
+        titanicTopWidth2 = marker3.transform.position.x - titanicTop.transform.position.x;
+        titanicTopLength2 = marker3.transform.position.z - titanicTop.transform.position.z;
+
+        titanicTopLength2 /= 5.0f;
+
+        if (this.transform.position.x < titanicTop.transform.position.x + titanicTopWidth2 &&
+            this.transform.position.x > titanicTop.transform.position.x - titanicTopWidth1 &&
+            this.transform.position.z < titanicTop.transform.position.z + titanicTopLength2 &&
+            this.transform.position.z > titanicTop.transform.position.z - titanicTopLength1)
+        {
+            //titanicTop.SetActive(false);
+            foreach (GameObject top in topList)
+            {
+                top.GetComponent<MeshRenderer>().rendererPriority = 0;
+
+                Material[] materials = top.GetComponent<MeshRenderer>().materials;
+
+                if (materials.Length > 1)
+                {
+                    foreach (Material material in materials)
+                    {
+                        Color color = material.color;
+                        color.a -= Time.deltaTime * 2f;
+                        if (color.a <= 0.0f)
+                        {
+                            color.a = 0.0f;
+                        }
+                        material.color = color;
+                    }
+                }
+
+                else
+                {
+                    Color color = materials[0].color;
+                    color.a -= Time.deltaTime * 2f;
+                    if (color.a <= 0.0f)
+                    {
+                        color.a = 0.0f;
+                    }
+                    materials[0].color = color;
+
+                }
+            }
+
+            
+        }
+
+        else
+        {
+            //titanicTop.SetActive(true);
+            foreach (GameObject top in topList)
+            {
+                Material[] materials = top.GetComponent<MeshRenderer>().materials;
+
+                if (materials.Length > 1)
+                {
+                    foreach (Material material in materials)
+                    {
+                        Color color = material.color;
+                        color.a += Time.deltaTime * 2f;
+                        if (color.a >= 1.0f)
+                        {
+                            color.a = 1.0f;
+                        }
+                        material.color = color;
+                    }
+                }
+
+                else
+                {
+                    Color color = materials[0].color;
+                    color.a += Time.deltaTime * 2f;
+                    if (color.a >= 1.0f)
+                    {
+                        color.a = 1.0f;
+                    }
+                    materials[0].color = color;
+
+                }
+            }
+
+        }
+
+        
+
+
     }
 
     private void OnCollisionStay(Collision collision)
