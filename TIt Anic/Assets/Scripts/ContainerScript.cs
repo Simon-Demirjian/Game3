@@ -45,7 +45,7 @@ public class ContainerScript : MonoBehaviour
 
 
         dresserDistance = 1.5f;
-        standDistance = 1.5f;
+        standDistance = 2.0f;
         //generate dresser list based on tag
 
         containers = GameObject.FindGameObjectsWithTag("Container");
