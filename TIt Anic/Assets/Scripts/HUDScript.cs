@@ -27,10 +27,10 @@ public class HUDScript : MonoBehaviour
     void Update()
     {
         inventorySprites = interactScript.inventorySprites;
-        if(inventorySprites.Count > inventorySize)
+        Transform inventoryPanel = transform.Find("Inventory");
+        if (inventorySprites.Count > inventorySize)
         {
             //find the panels of the inventory
-            Transform inventoryPanel = transform.Find("Inventory");
             foreach(Transform slot in inventoryPanel)
             {
                 //get the image panel
@@ -47,5 +47,17 @@ public class HUDScript : MonoBehaviour
             }
         }
         inventorySize = inventorySprites.Count;
+
+        //check that removes tiems if they are removed from the inventory
+        for(int i = 0; i < inventory.Count; i++)
+        {
+            Image image = inventoryPanel.GetChild(i).GetChild(0).GetComponent<Image>();
+            image.sprite = inventorySprites[inventory[i]];
+        }
+        for(int i = inventory.Count; i < inventoryPanel.childCount; i++)
+        {
+            Image image = inventoryPanel.GetChild(i).GetChild(0).GetComponent<Image>();
+            image.enabled = false;
+        }
     }
 }

@@ -67,6 +67,12 @@ public class InteractingManager : MonoBehaviour
         DoorCheck();
         LockedDoorCheck();
         InteractableCheck();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            inventorySprites.Remove(inventory[1]);
+            inventory.Remove(inventory[1]);
+        }
     }
 
     
