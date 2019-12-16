@@ -13,6 +13,8 @@ public class MovePlayer : MonoBehaviour
 
     public GameObject marker1;
     public GameObject marker3;
+    public GameObject clockHand;
+
 
 
     [SerializeField]
@@ -69,6 +71,8 @@ public class MovePlayer : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+       
+        clockHand.transform.rotation = Quaternion.Euler(0, 0,  360 * (-timer / timerMax));
 
         if(timer >= timerMax)
         {
