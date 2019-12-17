@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEditor;
 
 public class NPC : MonoBehaviour
 {
@@ -26,7 +24,6 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     /// <summary>

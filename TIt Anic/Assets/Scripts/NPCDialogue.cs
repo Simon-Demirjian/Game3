@@ -94,6 +94,12 @@ public class NPCDialogue : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         guiOn = true;
+                        // If this is Member2, move him
+                        // band-aid code that moves member 2 away from a door :^)
+                        if (closest.GetComponent<NPC>().npcName == "Member2" && player.GetComponent<InteractingManager>().inventory.Contains("Cocktail"))
+                        {
+                            closest.transform.Translate(new Vector3(2.0f, 0.0f, 0.0f));
+                        }
                     }
                 }
                 else
