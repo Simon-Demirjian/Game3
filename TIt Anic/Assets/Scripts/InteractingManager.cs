@@ -308,11 +308,17 @@ public class InteractingManager : MonoBehaviour
                     {
                         if (!containerScript.playerHasRequiredItem && containerScript.requiredItem[i] != "") // if there is a required item for this container, check if the player has it
                         {
+                            int check = 0;
                             foreach (string j in inventory)
                             {
                                 if (j == containerScript.requiredItem[i])
                                 {
-                                    containerScript.playerHasRequiredItem = true;
+                                    check++;
+                                    if(check == containerScript.requiredItem.Length)
+                                    {
+                                        containerScript.playerHasRequiredItem = true;
+
+                                    }
                                     // Attempting to remove the sprite from the inventory once the required item is used.
                                     //inventory.Remove(containerScript.requiredItem);
                                     //inventorySprites.Remove(containerScript.requiredItem);
