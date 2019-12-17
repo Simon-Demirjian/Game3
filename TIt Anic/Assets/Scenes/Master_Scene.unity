@@ -2237,7 +2237,7 @@ MonoBehaviour:
   item: Bloody Water
   requiredItem: Empty Vial
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: c48c2a1e02ca2d74aaec96f2f86b27ca, type: 3}
+  image: {fileID: 21300000, guid: 2bc47888d61ba054d99b51212a702120, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
