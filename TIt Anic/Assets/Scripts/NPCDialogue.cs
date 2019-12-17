@@ -27,6 +27,18 @@ public class NPCDialogue : MonoBehaviour
     private static Text dialogueText;
     private static Text nameText;
 
+    public void NewScene()
+    {
+        npcList = new List<GameObject>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        distance = 2.0f;
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject npc in npcs)
+        {
+            npcList.Add(npc);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

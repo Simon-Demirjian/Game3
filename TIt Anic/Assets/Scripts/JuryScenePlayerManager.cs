@@ -11,6 +11,8 @@ public class JuryScenePlayerManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(12.0f, 8.0f, -40.0f);
+        player.GetComponent<InteractingManager>().NewScene();
+        player.GetComponent<NPCDialogue>().NewScene();
     }
 
     // Update is called once per frame

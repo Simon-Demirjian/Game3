@@ -35,6 +35,35 @@ public class InteractingManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void NewScene()
+    {
+        containerList = new List<GameObject>();
+        doorList = new List<GameObject>();
+        lockedDoorList = new List<GameObject>();
+
+
+        //generate container list based on tag
+        containers = GameObject.FindGameObjectsWithTag("Container");
+        foreach (GameObject container in containers)
+        {
+            containerList.Add(container);
+        }
+
+        //generate door list based on tag
+        doors = GameObject.FindGameObjectsWithTag("UnlockedDoor");
+        foreach (GameObject door in doors)
+        {
+            doorList.Add(door);
+        }
+
+        //generate locked door list based on tag
+        lockedDoors = GameObject.FindGameObjectsWithTag("LockedDoor");
+        foreach (GameObject lockedDoor in lockedDoors)
+        {
+            lockedDoorList.Add(lockedDoor);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,12 +101,6 @@ public class InteractingManager : MonoBehaviour
         DoorCheck();
         LockedDoorCheck();
         InteractableCheck();
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            inventorySprites.Remove(inventory[1]);
-            inventory.Remove(inventory[1]);
-        }
     }
 
     
