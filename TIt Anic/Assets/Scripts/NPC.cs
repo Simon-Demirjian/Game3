@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     public string message;
 
     public bool condition;
+    public bool orConditional;
     public string secondMessage;
     public int numberOfItems;
     public string[] requiredItems = new string[0];
@@ -39,15 +40,28 @@ public class NPC : MonoBehaviour
 
         else
         {
-            for (int i = 0; i < numberOfItems; i++)
+            if(!orConditional)
             {
-                if(!interactionManager.evidenceCollected.Contains(requiredItems[i]))
+                for (int i = 0; i < numberOfItems; i++)
                 {
-                    return message;
+                    if (!interactionManager.evidenceCollected.Contains(requiredItems[i]))
+                    {
+                        return message;
+                    }
                 }
+                return secondMessage;
             }
-
-            return secondMessage;
+            else
+            {
+                for (int i = 0; i < numberOfItems; i++)
+                {
+                    if (interactionManager.evidenceCollected.Contains(requiredItems[i]))
+                    {
+                        return secondMessage;
+                    }
+                }
+                return message;
+            }
         }
     }
 }

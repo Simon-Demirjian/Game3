@@ -17,6 +17,7 @@ public class NPCEditor : Editor
         if (script.condition)
         {
             EditorGUI.indentLevel++;
+            script.orConditional = EditorGUILayout.Toggle("Or Instead of And", script.orConditional);
             script.secondMessage = EditorGUILayout.TextField("Second Message", script.secondMessage);
 
             script.numberOfItems = EditorGUILayout.IntSlider("Number of Items", script.numberOfItems, 0, 5);
