@@ -42,6 +42,22 @@ public class MovePlayer : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    public void NewScene(MovePlayer other)
+    {
+        topList = new List<GameObject>();
+
+        tops = GameObject.FindGameObjectsWithTag("Top");
+        foreach (GameObject top in tops)
+        {
+            topList.Add(top);
+        }
+
+        titanicTop = other.titanicTop;
+        marker1 = other.marker1;
+        marker3 = other.marker3;
+}
+
+
     // Start is called before the first frame update
     void Start()
     {

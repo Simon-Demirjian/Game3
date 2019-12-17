@@ -42,6 +42,9 @@ public class InteractingManager : MonoBehaviour
             GameObject.FindGameObjectsWithTag("Player")[0].transform.position = transform.position;
             GameObject.FindGameObjectsWithTag("Player")[1].transform.position = transform.position;
 
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MovePlayer>().NewScene(GetComponent<MovePlayer>());
+            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<MovePlayer>().NewScene(GetComponent<MovePlayer>());
+
             GameObject.Destroy(gameObject);
         }
         else

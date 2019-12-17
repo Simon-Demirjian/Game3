@@ -1520,7 +1520,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fa79fd40f09be8b4f8d6ed1883e7753c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.61
+      value: 11.47
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fa79fd40f09be8b4f8d6ed1883e7753c,
         type: 3}
@@ -1619,8 +1619,8 @@ MonoBehaviour:
   secondMessage: Oh my god! This vase did in fact break. The Iceberg did it.
   numberOfItems: 2
   requiredItems:
-  - Vase
-  - Photograph
+  - BrokenVase
+  - Photo
 --- !u!23 &1047544558
 MeshRenderer:
   m_ObjectHideFlags: 0
