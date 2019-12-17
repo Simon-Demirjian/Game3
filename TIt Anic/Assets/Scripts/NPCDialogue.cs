@@ -26,6 +26,10 @@ public class NPCDialogue : MonoBehaviour
     private static Canvas dialogueHolder;
     private static Text dialogueText;
     private static Text nameText;
+    private bool bartend = false;
+    private bool photo = false;
+
+
 
     public void NewScene()
     {
@@ -106,11 +110,47 @@ public class NPCDialogue : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         guiOn = true;
+                       
                         // If this is Member2, move him
                         // band-aid code that moves member 2 away from a door :^)
                         if (closest.GetComponent<NPC>().npcName == "Member2" && player.GetComponent<InteractingManager>().inventory.Contains("Cocktail"))
                         {
                             closest.transform.Translate(new Vector3(2.0f, 0.0f, 0.0f));
+                        }
+
+                        if (!bartend && closest.GetComponent<NPC>().npcName == "Bartender" && (player.GetComponent<InteractingManager>().inventory.Contains("Money_1") || player.GetComponent<InteractingManager>().inventory.Contains("Money_2")))
+                        {
+                            string temp = closest.GetComponent<NPC>().message;
+                            closest.GetComponent<NPC>().message = closest.GetComponent<NPC>().secondMessage;
+                            closest.GetComponent<NPC>().secondMessage = temp;
+                            bartend = true;
+                        }
+
+                        else if (bartend && closest.GetComponent<NPC>().npcName == "Bartender" && !(player.GetComponent<InteractingManager>().inventory.Contains("Money_1") || player.GetComponent<InteractingManager>().inventory.Contains("Money_2")))
+                        {
+                            string temp = closest.GetComponent<NPC>().message;
+                            closest.GetComponent<NPC>().message = closest.GetComponent<NPC>().secondMessage;
+                            closest.GetComponent<NPC>().secondMessage = temp;
+                            bartend = false;
+
+                        }
+
+                        if (!photo && closest.GetComponent<NPC>().npcName == "Photographer" && (player.GetComponent<InteractingManager>().inventory.Contains("Money_1") || player.GetComponent<InteractingManager>().inventory.Contains("Money_2")))
+                        {
+                            string temp = closest.GetComponent<NPC>().message;
+                            closest.GetComponent<NPC>().message = closest.GetComponent<NPC>().secondMessage;
+                            closest.GetComponent<NPC>().secondMessage = temp;
+                            photo = true;
+
+                        }
+
+                        else if (photo && closest.GetComponent<NPC>().npcName == "Photographer" && !(player.GetComponent<InteractingManager>().inventory.Contains("Money_1") || player.GetComponent<InteractingManager>().inventory.Contains("Money_2")))
+                        {
+                            string temp = closest.GetComponent<NPC>().message;
+                            closest.GetComponent<NPC>().message = closest.GetComponent<NPC>().secondMessage;
+                            closest.GetComponent<NPC>().secondMessage = temp;
+                            photo = false;
+
                         }
                     }
                 }
