@@ -22,7 +22,7 @@ public class MovePlayer : MonoBehaviour
     float x;
     float z;
 
-    float timerMax = 180;
+    float timerMax = 60;
     float timer;
     string thisScene;
     string trialScene;

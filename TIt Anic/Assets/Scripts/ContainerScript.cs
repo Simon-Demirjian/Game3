@@ -8,7 +8,7 @@ public class ContainerScript : MonoBehaviour
     public bool contains;
     public bool containsEvidence;
     public string item;
-    public string requiredItem;
+    public string[] requiredItem;
     public bool playerHasRequiredItem;
     public Sprite image;
     public bool visited;
@@ -42,12 +42,13 @@ public class ContainerScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         visited = false;
-
-        if(requiredItem == "")
-            playerHasRequiredItem = true;
-        else
-            playerHasRequiredItem = false;
-
+        foreach (string x in requiredItem)
+        {
+            if (x == "")
+                playerHasRequiredItem = true;
+            else
+                playerHasRequiredItem = false;
+        }
 
         dresserDistance = 1.5f;
         standDistance = 2.0f;

@@ -249,41 +249,120 @@ public class InteractingManager : MonoBehaviour
                     containerScript.open = true;
                 }
 
-
-                if (!containerScript.playerHasRequiredItem && containerScript.requiredItem != "") // if there is a required item for this container, check if the player has it
+                if (containerScript.requiredItem.Length == 0 || containerScript.requiredItem[0] == "")
                 {
-                    foreach (string i in inventory)
+                    if (!containerScript.playerHasRequiredItem && containerScript.requiredItem[0] != "") // if there is a required item for this container, check if the player has it
                     {
-                        if (i == containerScript.requiredItem)
+                        foreach (string j in inventory)
                         {
-                            containerScript.playerHasRequiredItem = true;
-                            // Attempting to remove the sprite from the inventory once the required item is used.
-                            //inventory.Remove(containerScript.requiredItem);
-                            //inventorySprites.Remove(containerScript.requiredItem);
+                            if (j == containerScript.requiredItem[0])
+                            {
+                                containerScript.playerHasRequiredItem = true;
+                                // Attempting to remove the sprite from the inventory once the required item is used.
+                                //inventory.Remove(containerScript.requiredItem);
+                                //inventorySprites.Remove(containerScript.requiredItem);
+                            }
                         }
                     }
-                }               
-                if (containerScript.containsEvidence && containerScript.playerHasRequiredItem) //if the container held an item, add it to the inventory
-                {
-                    evidenceCollected.Add(containerScript.item);
-                    inventory.Add(containerScript.item);
-                    inventorySprites.Add(containerScript.item, containerScript.image);
+                    if (containerScript.containsEvidence && containerScript.playerHasRequiredItem) //if the container held an item, add it to the inventory
+                    {
+                        //inventory.Remove(containerScript.requiredItem[0]);
+                        //inventorySprites.Remove(containerScript.requiredItem[0]);
 
-                    containerScript.item = "Empty";
-                    containerScript.contains = false;
-                    containerScript.containsEvidence = false;
+                        evidenceCollected.Add(containerScript.item);
+                        inventory.Add(containerScript.item);
+                        inventorySprites.Add(containerScript.item, containerScript.image);
 
-                    collectedEvidence = true;
+                        containerScript.item = "Empty";
+                        containerScript.contains = false;
+                        containerScript.containsEvidence = false;
+
+                        collectedEvidence = true;
+                    }
+                    else if (containerScript.contains && containerScript.playerHasRequiredItem)
+                    {
+                        //inventory.Remove(containerScript.requiredItem[0]);
+                        //inventorySprites.Remove(containerScript.requiredItem[0]);
+
+                        inventory.Add(containerScript.item);
+                        inventorySprites.Add(containerScript.item, containerScript.image);
+
+                        
+
+                        containerScript.item = "Empty";
+                        containerScript.contains = false;
+
+                        collectedItem = true;
+                    }
+
                 }
-                else if (containerScript.contains && containerScript.playerHasRequiredItem)
+
+                else
                 {
-                    inventory.Add(containerScript.item);
-                    inventorySprites.Add(containerScript.item, containerScript.image);
+                    for (int i = 0; i < containerScript.requiredItem.Length; i++)
+                    {
+                        if (!containerScript.playerHasRequiredItem && containerScript.requiredItem[i] != "") // if there is a required item for this container, check if the player has it
+                        {
+                            foreach (string j in inventory)
+                            {
+                                if (j == containerScript.requiredItem[i])
+                                {
+                                    containerScript.playerHasRequiredItem = true;
+                                    // Attempting to remove the sprite from the inventory once the required item is used.
+                                    //inventory.Remove(containerScript.requiredItem);
+                                    //inventorySprites.Remove(containerScript.requiredItem);
+                                }
+                            }
+                        }
+                        if (containerScript.containsEvidence && containerScript.playerHasRequiredItem) //if the container held an item, add it to the inventory
+                        {
+                            inventory.Remove(containerScript.requiredItem[i]);
+                            inventorySprites.Remove(containerScript.requiredItem[i]);
 
-                    containerScript.item = "Empty";
-                    containerScript.contains = false;
+                            evidenceCollected.Add(containerScript.item);
+                            inventory.Add(containerScript.item);
+                            inventorySprites.Add(containerScript.item, containerScript.image);
 
-                    collectedItem = true;
+                            containerScript.item = "Empty";
+                            containerScript.contains = false;
+                            containerScript.containsEvidence = false;
+
+                            collectedEvidence = true;
+                        }
+                        else if (containerScript.contains && containerScript.playerHasRequiredItem)
+                        {
+                            inventory.Remove(containerScript.requiredItem[i]);
+                            inventorySprites.Remove(containerScript.requiredItem[i]);
+
+                            inventory.Add(containerScript.item);
+                            inventorySprites.Add(containerScript.item, containerScript.image);
+
+                            containerScript.item = "Empty";
+                            containerScript.contains = false;
+
+                            collectedItem = true;
+                        }
+                    }
+                }
+
+                if (inventory.Contains("Photo") && inventory.Contains("Cocktail"))
+                {
+                    if (inventory.Contains("Money_1") || inventory.Contains("Money_2"))
+                    {
+                        if (inventory.Contains("Money_1"))
+                        {
+                            inventory.Remove("Money_1");
+
+                        }
+
+                        else if (inventory.Contains("Money_2"))
+                        {
+                            inventory.Remove("Money_2");
+
+                        }
+                    }
+
+
                 }
             }
         }
