@@ -327,11 +327,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.5613395
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: key
@@ -342,6 +337,11 @@ PrefabInstance:
       propertyPath: isLocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1001 &79141729
@@ -1333,11 +1333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: open
@@ -1353,6 +1348,11 @@ PrefabInstance:
       propertyPath: isLocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1001 &317841059
@@ -2182,13 +2182,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
+      propertyPath: requiredItem.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
+        type: 3}
       propertyPath: containsEvidence
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
       propertyPath: item
-      value: Broken Vase
+      value: BrokenVase
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
@@ -3352,16 +3357,9 @@ MonoBehaviour:
   containsEvidence: 0
   item: Iceberg'sKey
   requiredItem:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BrokenVase
+  - SaucyNovel
+  - Photo
   playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 9fa37ca627d2e9b45a5e0a4929cb1555, type: 3}
   visited: 0
@@ -3499,6 +3497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 34.813633
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
+        type: 3}
+      propertyPath: requiredItem.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
@@ -3820,13 +3823,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
+      propertyPath: requiredItem.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
+        type: 3}
       propertyPath: requiredItem.Array.data[0]
       value: Money_1
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
       propertyPath: requiredItem.Array.data[1]
-      value: Money_2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082761, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
@@ -3976,11 +3984,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: isLocked
@@ -3991,6 +3994,11 @@ PrefabInstance:
       propertyPath: key
       value: Iceberg'sKey
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1001 &1097525188
@@ -4542,16 +4550,7 @@ MonoBehaviour:
   containsEvidence: 1
   item: Bloody Water
   requiredItem:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Empty Vial
   playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: f95034a5f751cca448334427994d06e2, type: 3}
   visited: 0
@@ -5029,11 +5028,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.5042101
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: isLocked
@@ -5044,6 +5038,11 @@ PrefabInstance:
       propertyPath: key
       value: Iceberg'sKey
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1001 &1386924853
@@ -5118,11 +5117,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: isLocked
@@ -5133,6 +5127,11 @@ PrefabInstance:
       propertyPath: key
       value: FreezerKey
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1 &1416662709 stripped
@@ -5604,11 +5603,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.5042101
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: isLocked
@@ -5619,6 +5613,11 @@ PrefabInstance:
       propertyPath: key
       value: FreezerKey
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1 &1541281542
@@ -6239,11 +6238,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     - target: {fileID: 7691660923227376575, guid: a416559729c980348b3860f62304d39a,
         type: 3}
       propertyPath: open
@@ -6259,6 +6253,11 @@ PrefabInstance:
       propertyPath: isLocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7691660923227376568, guid: a416559729c980348b3860f62304d39a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 655382f2e1b77a84cb70d0049f228b23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a416559729c980348b3860f62304d39a, type: 3}
 --- !u!1001 &1695648875
@@ -6797,6 +6796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 34.813633
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
+        type: 3}
+      propertyPath: requiredItem.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9221278457761082758, guid: 3c5c9bddceabdd94f8d226678a93d667,
         type: 3}
