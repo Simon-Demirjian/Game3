@@ -32,7 +32,22 @@ public class InteractingManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(GameObject.FindGameObjectsWithTag("Player").Length > 1)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<NPCDialogue>().NewScene();
+            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<NPCDialogue>().NewScene();
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<InteractingManager>().NewScene();
+            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<InteractingManager>().NewScene();
+
+            GameObject.FindGameObjectsWithTag("Player")[0].transform.position = transform.position;
+            GameObject.FindGameObjectsWithTag("Player")[1].transform.position = transform.position;
+
+            GameObject.Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 
     public void NewScene()

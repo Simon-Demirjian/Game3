@@ -23,6 +23,7 @@ public class MovePlayer : MonoBehaviour
     float z;
 
     float timerMax = 60;
+    float timerMaxJury = 35;
     float timer;
     string thisScene;
     string trialScene;
@@ -77,23 +78,24 @@ public class MovePlayer : MonoBehaviour
 
         timer += Time.deltaTime;
        
-        clockHand.transform.rotation = Quaternion.Euler(0, 0,  360 * (-timer / timerMax));
-
-        if(timer >= timerMax)
+        if (SceneManager.GetActiveScene().name.Equals("Scene_Jury"))
         {
-            if (thisScene.Equals("Scene_Jury"))
-            {
-                //SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
-                SceneManager.LoadScene(masterScene);
-                timer = 0;
+            clockHand.transform.rotation = Quaternion.Euler(0, 0, 360 * (-timer / timerMaxJury));
+        }
+        else
+        {
+            clockHand.transform.rotation = Quaternion.Euler(0, 0, 360 * (-timer / timerMax));
+        }
 
-            }
-
-            else
-            {
-                SceneManager.LoadScene(trialScene);
-                timer = 0;
-            }
+        if(timer >= timerMaxJury && SceneManager.GetActiveScene().name.Equals("Scene_Jury"))
+        {
+            SceneManager.LoadScene(masterScene);
+            timer = 0;
+        }
+        else if(timer >= timerMax)
+        {
+            SceneManager.LoadScene(trialScene);
+            timer = 0;
         }
 
         if(titanicTop && marker1 && marker3)
