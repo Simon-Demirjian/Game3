@@ -1376,6 +1376,25 @@ MonoBehaviour:
   player: {fileID: 0}
   dressAnim: {fileID: 0}
   standAnim: {fileID: 0}
+--- !u!95 &660961982
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660961980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &670269970 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
@@ -1684,6 +1703,25 @@ MonoBehaviour:
   player: {fileID: 0}
   dressAnim: {fileID: 0}
   standAnim: {fileID: 0}
+--- !u!95 &741576907
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741576905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &742488457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2002,6 +2040,25 @@ MonoBehaviour:
   player: {fileID: 0}
   dressAnim: {fileID: 0}
   standAnim: {fileID: 0}
+--- !u!95 &931190607
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931190605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &945845357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 6b11859be16264d4cbabcccb5c86bd89,
@@ -2237,7 +2294,7 @@ MonoBehaviour:
   item: Bloody Water
   requiredItem: Empty Vial
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 2bc47888d61ba054d99b51212a702120, type: 3}
+  image: {fileID: 21300000, guid: 504283b279326bd45896946b99dc430d, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
@@ -2713,6 +2770,25 @@ MonoBehaviour:
   player: {fileID: 0}
   dressAnim: {fileID: 0}
   standAnim: {fileID: 0}
+--- !u!95 &1274089120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274089118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1274123837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4825,6 +4901,25 @@ MonoBehaviour:
   player: {fileID: 0}
   dressAnim: {fileID: 0}
   standAnim: {fileID: 0}
+--- !u!95 &2033514806
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033514804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2038109477
 PrefabInstance:
   m_ObjectHideFlags: 0
