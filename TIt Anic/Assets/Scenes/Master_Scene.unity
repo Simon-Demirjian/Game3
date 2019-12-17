@@ -147,7 +147,7 @@ MonoBehaviour:
   npcName: Member5
   message: 'Iceberg is so nice, he wouldn''t hurt a fly! I won''t let you have the
     key to his room! '
-  condition: 0
+  condition: 1
   secondMessage: H-How did you find that? Also...I guess he IS an evil guy. The key
     is in this dresser.
   numberOfItems: 3
@@ -367,7 +367,7 @@ MonoBehaviour:
   item: Empty Vial
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 05bf956d93a02124eb83f43d4b8932cd, type: 3}
+  image: {fileID: 21300000, guid: 075414607526e7b4c93cd06c0c2625c9, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -553,7 +553,7 @@ MonoBehaviour:
   item: FreezerKey
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 40797d8941be43241bcb594b8ed1e9c0, type: 3}
+  image: {fileID: 21300000, guid: 6405f109050db6c44a9b040f259b6e75, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -1369,12 +1369,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
-  contains: 1
+  contains: 0
   containsEvidence: 0
-  item: Glass Vial
+  item: 
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: cdd69989da206e0439b7d840ef834afd, type: 3}
+  image: {fileID: 0}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   item: RedKey
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: b45854a0176235145b8c09855589bd84, type: 3}
+  image: {fileID: 21300000, guid: 37d27cb0c34ab0a48aac274d207c587b, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -2093,7 +2093,7 @@ MonoBehaviour:
   item: Iceberg'sKey
   requiredItem: SaucyNovel
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 4a892dde19b65aa4faa26ebc8aaf9675, type: 3}
+  image: {fileID: 21300000, guid: 9fa37ca627d2e9b45a5e0a4929cb1555, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   item: Icicle Shiv
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: c19c57b645af3f74bb2c30cfc5bf4519, type: 3}
+  image: {fileID: 21300000, guid: 49ee3f149c42f854c948aa0746da1c44, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
@@ -3747,11 +3747,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8853113251360084860, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3808,6 +3803,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8853113252586445316, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -4915,10 +4915,10 @@ MonoBehaviour:
   open: 0
   contains: 0
   containsEvidence: 0
-  item: Dirt
+  item: Cocktail
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 806ef7c415001db468bfdb905db1371d, type: 3}
+  image: {fileID: 21300000, guid: e31abcc670beb74439587340516c08d4, type: 3}
   visited: 0
   player: {fileID: 0}
   animator: {fileID: 0}
