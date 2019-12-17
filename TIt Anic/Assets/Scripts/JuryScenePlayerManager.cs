@@ -18,6 +18,7 @@ public class JuryScenePlayerManager : MonoBehaviour
     {
         if (player.transform.position.x < 0 || player.transform.position.x > 24)
             player.transform.position = new Vector3(12, 8, -40);
-
+        else if (player.transform.position.z < -42 || player.transform.position.z > -16)
+            player.transform.position = new Vector3(12, 8, -40);
     }
 }

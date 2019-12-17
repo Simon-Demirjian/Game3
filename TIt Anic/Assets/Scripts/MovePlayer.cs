@@ -63,6 +63,11 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            timer += timerMax;
+        }
+
         if(canMove)
         {
             body.velocity = magnitude * new Vector3(Input.GetAxisRaw("Horizontal") * x, body.velocity.y, Input.GetAxisRaw("Vertical") * z);
