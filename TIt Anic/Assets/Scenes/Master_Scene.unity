@@ -148,6 +148,7 @@ MonoBehaviour:
   message: 'Iceberg is so nice, he wouldn''t hurt a fly! I won''t let you have the
     key to his room! '
   condition: 1
+  orConditional: 0
   secondMessage: H-How did you find that? Also...I guess he IS an evil guy. The key
     is in this dresser.
   numberOfItems: 3
@@ -433,11 +434,12 @@ MonoBehaviour:
   npcName: Bartender
   message: Sorry, I only serve paying customers. Come back when you have money.
   condition: 1
+  orConditional: 1
   secondMessage: Alright, one cocktail coming right up. I'll set it on this table
     for you.
   numberOfItems: 1
   requiredItems:
-  - Money
+  - Money_1
 --- !u!4 &79141732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
@@ -865,6 +867,7 @@ MonoBehaviour:
   npcName: Cook
   message: You need the freezer key? It's in the cupboard behind me.
   condition: 0
+  orConditional: 0
   secondMessage: 
   numberOfItems: 0
   requiredItems: []
@@ -1493,20 +1496,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &317841063
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317841060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1001 &326655240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2380,6 +2369,7 @@ MonoBehaviour:
     Bring me a blood sample from the crime scene. They say the victim put up a fight,
     so the killer's blood might be mixed in with the victim's.
   condition: 1
+  orConditional: 0
   secondMessage: Look at that! This blood looks diluted... like it's mixed with melted
     ice! That's enough evidence for my vote.
   numberOfItems: 1
@@ -2995,11 +2985,12 @@ MonoBehaviour:
   message: Hey, I'm the ship's photographer. If you want any of my photos, I partake
     in the exchange of capital for goods.
   condition: 1
+  orConditional: 1
   secondMessage: Ah, capital! You can pick your favorite photo from my drawer of them
     here.
   numberOfItems: 1
   requiredItems:
-  - Money
+  - Money_2
 --- !u!4 &820959472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
@@ -3312,7 +3303,8 @@ MonoBehaviour:
   contains: 1
   containsEvidence: 0
   item: RedKey
-  requiredItem: []
+  requiredItem:
+  - 
   playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 37d27cb0c34ab0a48aac274d207c587b, type: 3}
   visited: 0
@@ -4954,6 +4946,7 @@ MonoBehaviour:
   message: The poor murdered fellow must have been killed with some sort of weapon.
     Bring me a weapon linked to the Iceberg and you'll have my vote.
   condition: 1
+  orConditional: 0
   secondMessage: This shiv appears to be made out of ice... from an iceberg! I thought
     he was such a swell guy, but I guess it really was the Iceberg.
   numberOfItems: 1
@@ -5171,6 +5164,7 @@ MonoBehaviour:
     out to drink last night. You'll need to show me some hard evidence of premediated
     murder if you want to sway me.
   condition: 1
+  orConditional: 0
   secondMessage: Oh no... These are notes about the victim in the Iceberg's handwriting!
     It looks like he was planning this for some time. Alright, you have my vote against
     the Iceberg.
@@ -5754,6 +5748,7 @@ MonoBehaviour:
   message: '"Listen here kiddo, I don''t really care about the murder. I''m just here
     to have a good time. Get me a drink from the bar and i''ll play along."'
   condition: 1
+  orConditional: 0
   secondMessage: Alright! Thanks for the drink kiddo - you've got my vote.
   numberOfItems: 1
   requiredItems:
@@ -6383,6 +6378,7 @@ MonoBehaviour:
   npcName: Iceberg
   message: '*Static*'
   condition: 0
+  orConditional: 0
   secondMessage: 
   numberOfItems: 0
   requiredItems: []
@@ -6421,7 +6417,8 @@ MonoBehaviour:
   contains: 1
   containsEvidence: 1
   item: Notes
-  requiredItem: []
+  requiredItem:
+  - 
   playerHasRequiredItem: 0
   image: {fileID: 21300000, guid: 5a5a8e1c824d6ed4889fe3161c838fe2, type: 3}
   visited: 0
