@@ -25,17 +25,20 @@ public class ContainerScript : MonoBehaviour
     private bool standNear;
     private GameObject closestStand;
 
-    private List<GameObject> dresserList = new List<GameObject>();
-    private List<GameObject> nightStandList = new List<GameObject>();
+    private List<GameObject> dresserList;
+    private List<GameObject> nightStandList;
 
-    public Animator dressAnim;
-    public Animator standAnim;
+    public Animator animator;
+    private bool dresser;
+    private bool stand;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        dresserList = new List<GameObject>();
+        nightStandList = new List<GameObject>();
         player = GameObject.FindGameObjectWithTag("Player");
 
         visited = false;
@@ -48,45 +51,68 @@ public class ContainerScript : MonoBehaviour
 
         dresserDistance = 1.5f;
         standDistance = 2.0f;
+
+        animator = GetComponent<Animator>();
+
+        if(animator.avatar && animator.avatar.name == "DresserAvatar")
+        {
+            dresser = true;
+            stand = false;
+        }
+        else if(animator.avatar)
+        {
+            dresser = false;
+            stand = true;
+        }
         //generate dresser list based on tag
 
-        containers = GameObject.FindGameObjectsWithTag("Container");
+            /*
 
-        foreach(GameObject container in containers)
-        {
-            if(container.GetComponent<Animator>().avatar.name == "DresserAvatar")
+            containers = GameObject.FindGameObjectsWithTag("Container");
+
+            foreach(GameObject container in containers)
             {
-                dresserList.Add(container);
+                if(container.GetComponent<Animator>().avatar.name == "DresserAvatar")
+                {
+                    dresserList.Add(container);
+
+                }
+
+                if (container.GetComponent<Animator>().avatar.name == "Night_StandAvatar")
+                {
+                    nightStandList.Add(container);
+
+                }
 
             }
-
-            if (container.GetComponent<Animator>().avatar.name == "Night_StandAvatar")
-            {
-                nightStandList.Add(container);
-
-            }
-
-        }
+            */
 
 
 
-        //foreach (GameObject dresser in dressers)
-        //{
-        //    dresserList.Add(dresser);
-        //}
+            //foreach (GameObject dresser in dressers)
+            //{
+            //    dresserList.Add(dresser);
+            //}
     }
 
     // Update is called once per frame
     void Update()
     {
-        DresserCheck();
-        NightStandCheck();
+        if(dresser)
+        {
+            DresserCheck();
+        }
+        else if(stand)
+        {
+            NightStandCheck();
+        }
 
     }
 
     void DresserCheck()
     {
         int counter = 0;
+        /*
         foreach (GameObject dresser in dresserList)
         {
             if (player.transform.position.x > dresser.transform.position.x - dresserDistance &&
@@ -120,16 +146,21 @@ public class ContainerScript : MonoBehaviour
         {
             dresserNear = false;
         }
+        */
+
 
         //if the player is near an item, let them pick it up
-        if (dresserNear)
+        if (player.transform.position.x > transform.position.x - dresserDistance &&
+                player.transform.position.x < transform.position.x + dresserDistance &&
+                player.transform.position.z > transform.position.z - dresserDistance &&
+                player.transform.position.z < transform.position.z + dresserDistance)
         {
             //dressAnim = closest.GetComponent<Animator>();
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //AnimationScript animScript = closestDresser.GetComponent<AnimationScript>();
-                dressAnim = GetComponent<Animator>();
+                animator = GetComponent<Animator>();
 
                 //if (animScript.open)
                 //{
@@ -139,7 +170,7 @@ public class ContainerScript : MonoBehaviour
                 //{
                 //    animScript.open = true;
                 //}
-                dressAnim.Play("DresserOpen");
+                animator.Play("DresserOpen");
 
             }
         }
@@ -147,6 +178,7 @@ public class ContainerScript : MonoBehaviour
 
     void NightStandCheck()
     {
+        /*
         int counter = 0;
         foreach (GameObject stand in nightStandList)
         {
@@ -181,16 +213,20 @@ public class ContainerScript : MonoBehaviour
         {
             standNear = false;
         }
+        */
 
         //if the player is near an item, let them pick it up
-        if (standNear)
+        if (player.transform.position.x > transform.position.x - standDistance &&
+                player.transform.position.x < transform.position.x + standDistance &&
+                player.transform.position.z > transform.position.z - standDistance &&
+                player.transform.position.z < transform.position.z + standDistance)
         {
             //dressAnim = closest.GetComponent<Animator>();
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //AnimationScript animScript = closestDresser.GetComponent<AnimationScript>();
-                standAnim = GetComponent<Animator>();
+                animator = GetComponent<Animator>();
 
                 //if (animScript.open)
                 //{
@@ -200,7 +236,7 @@ public class ContainerScript : MonoBehaviour
                 //{
                 //    animScript.open = true;
                 //}
-                standAnim.Play("NightStandOpen");
+                animator.Play("NightStandOpen");
 
             }
         }

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 46347721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Member5
@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 48.704018
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 6b11859be16264d4cbabcccb5c86bd89,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b11859be16264d4cbabcccb5c86bd89, type: 3}
 --- !u!1001 &65262714
@@ -365,8 +370,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 05bf956d93a02124eb83f43d4b8932cd, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &173281979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -552,8 +556,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 40797d8941be43241bcb594b8ed1e9c0, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!4 &193792472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8853113251360084860, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
@@ -656,7 +659,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 218060732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Cook
@@ -1374,8 +1377,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: cdd69989da206e0439b7d840ef834afd, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &660961982
 Animator:
   serializedVersion: 3
@@ -1386,7 +1388,7 @@ Animator:
   m_GameObject: {fileID: 660961980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1416,7 +1418,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 670269970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: NPC 1
@@ -1514,6 +1516,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 44.212
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: a611cdadd1910c144a583f964d17c5df,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a611cdadd1910c144a583f964d17c5df, type: 3}
 --- !u!1001 &719814854
@@ -1603,6 +1610,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 62.923
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 6b11859be16264d4cbabcccb5c86bd89,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b11859be16264d4cbabcccb5c86bd89, type: 3}
 --- !u!1001 &727425883
@@ -1701,8 +1713,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 612e19011e939bc4d9edbd3a0f406c59, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &741576907
 Animator:
   serializedVersion: 3
@@ -1713,7 +1724,7 @@ Animator:
   m_GameObject: {fileID: 741576905}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2038,8 +2049,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: b45854a0176235145b8c09855589bd84, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &931190607
 Animator:
   serializedVersion: 3
@@ -2050,7 +2060,7 @@ Animator:
   m_GameObject: {fileID: 931190605}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2086,8 +2096,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 40797d8941be43241bcb594b8ed1e9c0, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &958945420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2184,8 +2193,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 731c503e4119b394a8e860f93b2d632b, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &991589695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2297,8 +2305,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: f95034a5f751cca448334427994d06e2, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &1047930303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2768,8 +2775,7 @@ MonoBehaviour:
   image: {fileID: 0}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &1274089120
 Animator:
   serializedVersion: 3
@@ -2780,7 +2786,7 @@ Animator:
   m_GameObject: {fileID: 1274089118}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2884,7 +2890,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1337258713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Member3
@@ -3098,7 +3104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1416662709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Member4
@@ -3354,6 +3360,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 48.704018
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 6b11859be16264d4cbabcccb5c86bd89,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b11859be16264d4cbabcccb5c86bd89, type: 3}
 --- !u!1001 &1523983969
@@ -3560,7 +3571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579126375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: NPC 2
@@ -3736,6 +3747,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8853113251360084860, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3792,11 +3808,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8853113252586445316, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -4085,6 +4096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e4881681a92c84b98fe34b56a3ff6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  interactionManager: {fileID: 0}
   npcName: Iceberg
   message: '*Static Noise*'
   condition: 0
@@ -4131,8 +4144,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 5a5a8e1c824d6ed4889fe3161c838fe2, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &1729057194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4220,6 +4232,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 35.188274
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: a611cdadd1910c144a583f964d17c5df,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a611cdadd1910c144a583f964d17c5df, type: 3}
 --- !u!1 &1777742939 stripped
@@ -4779,6 +4796,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 48.704018
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 6b11859be16264d4cbabcccb5c86bd89,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b11859be16264d4cbabcccb5c86bd89, type: 3}
 --- !u!1 &2024002269
@@ -4899,8 +4921,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 806ef7c415001db468bfdb905db1371d, type: 3}
   visited: 0
   player: {fileID: 0}
-  dressAnim: {fileID: 0}
-  standAnim: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!95 &2033514806
 Animator:
   serializedVersion: 3
@@ -4911,7 +4932,7 @@ Animator:
   m_GameObject: {fileID: 2033514804}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c55217a1c75293458c317b636a2ee13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
