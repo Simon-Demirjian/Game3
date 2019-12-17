@@ -2083,7 +2083,7 @@ MonoBehaviour:
   item: Iceberg'sKey
   requiredItem: SaucyNovel
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 40797d8941be43241bcb594b8ed1e9c0, type: 3}
+  image: {fileID: 21300000, guid: 4a892dde19b65aa4faa26ebc8aaf9675, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
@@ -2181,7 +2181,7 @@ MonoBehaviour:
   item: Icicle Shiv
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 731c503e4119b394a8e860f93b2d632b, type: 3}
+  image: {fileID: 21300000, guid: c19c57b645af3f74bb2c30cfc5bf4519, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
