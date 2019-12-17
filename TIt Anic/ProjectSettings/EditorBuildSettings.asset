@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Jury.unity
     guid: c6a8e421106a9f64e99185329fbde3e3
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: b4e877638ba7c9d4ea69cea48921afe4
+  - enabled: 1
+    path: Assets/Scenes/Loss.unity
+    guid: ac312d9fdde00094ab50d08ccf1b4cf0
   m_configObjects: {}

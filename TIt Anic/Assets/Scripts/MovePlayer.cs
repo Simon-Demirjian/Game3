@@ -22,7 +22,7 @@ public class MovePlayer : MonoBehaviour
     float x;
     float z;
 
-    float timerMax = 60;
+    float timerMax = 50;
     float timerMaxJury = 35;
     float timer;
     string thisScene;
@@ -36,6 +36,8 @@ public class MovePlayer : MonoBehaviour
 
     private GameObject[] tops;
     private List<GameObject> topList = new List<GameObject>();
+
+    private int daysFinished = 0;
 
     [HideInInspector]
     public bool canMove = true;
@@ -87,15 +89,32 @@ public class MovePlayer : MonoBehaviour
             clockHand.transform.rotation = Quaternion.Euler(0, 0, 360 * (-timer / timerMax));
         }
 
-        if(timer >= timerMaxJury && SceneManager.GetActiveScene().name.Equals("Scene_Jury"))
+        if(timer >= timerMax && daysFinished > 1)
         {
-            SceneManager.LoadScene(masterScene);
+            if(GetComponent<InteractingManager>().evidenceCollected.Contains("Bloody Water") &&
+                GetComponent<InteractingManager>().evidenceCollected.Contains("Cocktail") &&
+                GetComponent<InteractingManager>().evidenceCollected.Contains("IcicleShiv") &&
+                GetComponent<InteractingManager>().evidenceCollected.Contains("Notes") &&
+                GetComponent<InteractingManager>().evidenceCollected.Contains("Vase") &&
+                GetComponent<InteractingManager>().evidenceCollected.Contains("Photograph"))
+            {
+                SceneManager.LoadScene("Win");
+            }
+            else
+            {
+                SceneManager.LoadScene("Loss");
+            }
+        }
+        else if(timer >= timerMaxJury && SceneManager.GetActiveScene().name.Equals("Scene_Jury"))
+        {
             timer = 0;
+            SceneManager.LoadScene(masterScene);
         }
         else if(timer >= timerMax)
         {
-            SceneManager.LoadScene(trialScene);
             timer = 0;
+            daysFinished++;
+            SceneManager.LoadScene(trialScene);
         }
 
         if(titanicTop && marker1 && marker3)
