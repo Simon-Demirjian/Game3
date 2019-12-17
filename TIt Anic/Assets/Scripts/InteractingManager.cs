@@ -294,8 +294,8 @@ public class InteractingManager : MonoBehaviour
                     }
                     if (containerScript.containsEvidence && containerScript.playerHasRequiredItem) //if the container held an item, add it to the inventory
                     {
-                        //inventory.Remove(containerScript.requiredItem[0]);
-                        //inventorySprites.Remove(containerScript.requiredItem[0]);
+                        inventory.Remove(containerScript.requiredItem[0]);
+                        inventorySprites.Remove(containerScript.requiredItem[0]);
 
                         evidenceCollected.Add(containerScript.item);
                         inventory.Add(containerScript.item);
@@ -309,8 +309,8 @@ public class InteractingManager : MonoBehaviour
                     }
                     else if (containerScript.contains && containerScript.playerHasRequiredItem)
                     {
-                        //inventory.Remove(containerScript.requiredItem[0]);
-                        //inventorySprites.Remove(containerScript.requiredItem[0]);
+                        inventory.Remove(containerScript.requiredItem[0]);
+                        inventorySprites.Remove(containerScript.requiredItem[0]);
 
                         inventory.Add(containerScript.item);
                         inventorySprites.Add(containerScript.item, containerScript.image);
