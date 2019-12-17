@@ -2332,6 +2332,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8b9be0265d95a54a849d088a10299d2, type: 3}
+--- !u!1 &478028471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 901999717, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 253057572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522721236
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,7 +8469,7 @@ MonoBehaviour:
   titanicTop: {fileID: 1695700558}
   marker1: {fileID: 1621428118}
   marker3: {fileID: 1777742939}
-  clockHand: {fileID: 1847141963}
+  clockHand: {fileID: 2134340652}
   magnitude: 10
   canMove: 1
 --- !u!54 &1977975658
