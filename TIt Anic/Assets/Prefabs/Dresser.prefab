@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6893768352776686151}
   m_Layer: 0
   m_Name: Dresser
-  m_TagString: Dresser
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
+  standAnim: {fileID: 0}
 --- !u!1 &6186859597933220569
 GameObject:
   m_ObjectHideFlags: 0

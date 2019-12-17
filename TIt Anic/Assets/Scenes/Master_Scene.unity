@@ -2237,7 +2237,7 @@ MonoBehaviour:
   item: Bloody Water
   requiredItem: Empty Vial
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: 6069505693cf69144837c461ae22e8e8, type: 3}
+  image: {fileID: 21300000, guid: c48c2a1e02ca2d74aaec96f2f86b27ca, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
@@ -3660,11 +3660,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8853113251360084860, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3721,6 +3716,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8853113252586445316, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853113252039852181, guid: 6349980ca9aba0e4a8f2d7c8a68d0a9b,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -4832,6 +4832,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 599971530}
     m_Modifications:
+    - target: {fileID: 5975662571787986562, guid: 5250c2db7d5236841a69a47ada1c0fb8,
+        type: 3}
+      propertyPath: m_Name
+      value: Room3
+      objectReference: {fileID: 0}
     - target: {fileID: 5975662571787986563, guid: 5250c2db7d5236841a69a47ada1c0fb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4886,11 +4891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975662571787986562, guid: 5250c2db7d5236841a69a47ada1c0fb8,
-        type: 3}
-      propertyPath: m_Name
-      value: Room3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5250c2db7d5236841a69a47ada1c0fb8, type: 3}
