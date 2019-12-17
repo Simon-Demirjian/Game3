@@ -362,7 +362,7 @@ MonoBehaviour:
   item: Empty Vial
   requiredItem: 
   playerHasRequiredItem: 0
-  image: {fileID: 21300000, guid: cdd69989da206e0439b7d840ef834afd, type: 3}
+  image: {fileID: 21300000, guid: 05bf956d93a02124eb83f43d4b8932cd, type: 3}
   visited: 0
   player: {fileID: 0}
   dressAnim: {fileID: 0}
