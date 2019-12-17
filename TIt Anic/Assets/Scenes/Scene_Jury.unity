@@ -204,6 +204,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ab1f4163349aa84583185f9cbc3e6df, type: 3}
+--- !u!1 &43874097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2ab1f4163349aa84583185f9cbc3e6df,
+    type: 3}
+  m_PrefabInstance: {fileID: 43874096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &43874098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43874097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Iceberg
+  message: '*Static*'
+  condition: 0
+  secondMessage: 
+  numberOfItems: 0
+  requiredItems: []
 --- !u!1 &50031113
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +681,7 @@ PrefabInstance:
     - target: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
       propertyPath: m_Name
-      value: NPC (3)
+      value: Member4
       objectReference: {fileID: 0}
     - target: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
@@ -716,6 +740,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae278ad315aab45920062c5fdfc3e5, type: 3}
+--- !u!1 &549061926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 549061925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &549061927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549061926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Member4
+  message: You'll need more evidence to convince me that the iceberg is a murderer.
+  condition: 1
+  secondMessage: Alright, these notes you found have persuaded me.
+  numberOfItems: 1
+  requiredItems:
+  - Notes
 --- !u!1001 &654077590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -805,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
       propertyPath: m_Name
-      value: NPC (2)
+      value: Member3
       objectReference: {fileID: 0}
     - target: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
@@ -864,6 +913,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae278ad315aab45920062c5fdfc3e5, type: 3}
+--- !u!1 &721280531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 721280530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721280532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721280531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Member3
+  message: I still don't think that the Iceberg would hurt anyone, he's such a swell
+    guy!
+  condition: 1
+  secondMessage: You have my vote. It would be stupid to ignore evidence this strong.
+  numberOfItems: 1
+  requiredItems:
+  - IcicleShiv
 --- !u!1001 &913323914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -874,7 +949,7 @@ PrefabInstance:
     - target: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
       propertyPath: m_Name
-      value: NPC (1)
+      value: Member2
       objectReference: {fileID: 0}
     - target: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
@@ -933,6 +1008,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae278ad315aab45920062c5fdfc3e5, type: 3}
+--- !u!1 &913323915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 913323914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &913323916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913323915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Member2*
+  message: Like I said, I'm not interested in the case. I just want to drink and have
+    a good time.
+  condition: 1
+  secondMessage: That cocktail was great, you've got my vote.
+  numberOfItems: 1
+  requiredItems:
+  - Cocktail
 --- !u!1001 &1042781315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1460,7 +1561,7 @@ PrefabInstance:
     - target: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Member1
       objectReference: {fileID: 0}
     - target: {fileID: 1399380587976515650, guid: e5ae278ad315aab45920062c5fdfc3e5,
         type: 3}
@@ -1519,6 +1620,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae278ad315aab45920062c5fdfc3e5, type: 3}
+--- !u!1 &1723662964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5543765455201929350, guid: e5ae278ad315aab45920062c5fdfc3e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1723662963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1723662965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723662964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6ab4b687f10ec49afd971e171edfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Member1
+  message: I feel kind of bad for putting the Iceberg on the spot like this. I'm still
+    not convinced he's done any wrongdoing.
+  condition: 1
+  secondMessage: The Iceberg is the only person who fits the bill for this concoction.
+    You have my vote.
+  numberOfItems: 1
+  requiredItems:
+  - Bloody Water
 --- !u!1 &1725032835
 GameObject:
   m_ObjectHideFlags: 0
